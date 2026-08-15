@@ -1,15 +1,19 @@
 import type { InputHTMLAttributes, TextareaHTMLAttributes } from 'react'
 import { cn } from '@/lib/cn'
 
+/**
+ * Ввод происходит на пластине. Чёрным по светлому читается под любым углом
+ * и при любом свете — это единственная причина, по которой поле не тёмное.
+ */
 const SHARED = cn(
-  'hud-well w-full rounded-md border border-line px-3 text-text',
-  'placeholder:text-muted/70',
-  'transition-[border-color,box-shadow] duration-100 ease-hud',
-  'focus:border-accent/70 focus:shadow-glow focus:outline-none',
-  'disabled:cursor-not-allowed disabled:text-muted',
+  'plate w-full rounded-sm px-3',
+  'placeholder:text-plate-muted/75',
+  'transition-[box-shadow,outline-color] duration-100 ease-station',
+  'focus:outline-2 focus:outline-offset-2 focus:outline-stamp',
+  'disabled:cursor-not-allowed disabled:bg-plate/30 disabled:text-plate-muted',
 )
 
-const INVALID = 'border-danger/80 focus:border-danger focus:shadow-none'
+const INVALID = 'outline-2 outline-offset-0 outline-stamp'
 
 type InputProps = InputHTMLAttributes<HTMLInputElement> & { invalid?: boolean }
 
@@ -21,13 +25,7 @@ export function Input({ invalid, className, type = 'text', inputMode, ...rest }:
       type={type}
       inputMode={inputMode}
       aria-invalid={invalid || undefined}
-      className={cn(
-        SHARED,
-        'h-12',
-        numeric && 'font-mono tabular-nums',
-        invalid && INVALID,
-        className,
-      )}
+      className={cn(SHARED, 'h-12', numeric && 'num', invalid && INVALID, className)}
       {...rest}
     />
   )

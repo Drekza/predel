@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="ru" style="background-color: #05070a; color-scheme: dark">
+<html lang="ru" style="background-color: #10130d; color-scheme: dark">
   <head>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
     />
-    <meta name="theme-color" content="#05070a" />
+    <meta name="theme-color" content="#10130d" />
     <meta name="color-scheme" content="dark" />
     <meta name="description" content="Дневник силовых тренировок с игровой прогрессией" />
     <meta name="robots" content="noindex, nofollow" />
@@ -21,7 +21,7 @@
       /* фон до загрузки бандла — чтобы не было белой вспышки */
       html,
       body {
-        background-color: #05070a;
+        background-color: #10130d;
       }
       body {
         margin: 0;
@@ -29,6 +29,25 @@
     </style>
   </head>
   <body>
+    <!--
+      THESIS: поверочная станция, а не тёмный HUD. Отказ от стеклянной панели с
+      неоновой подсветкой и координатной сеткой: числа живут на светлых пластинах,
+      вставленных в тёмный корпус.
+      OWN-WORLD: корпус — тёмная оливково-графитовая эмаль с физической фаской.
+      Пластина — светлый анодированный сток с гравированной шкалой по краю.
+      Клеймо — киноварь, только для отметки и необратимого. Oswald на метках,
+      Martian Mono на показаниях, Inter на прозе. Ни свечения, ни скобок.
+      STORY: в зале за полсекунды видно, что уже поверено, что осталось и куда
+      бить пальцем; дома та же станция работает в спокойном режиме.
+      FIRST VIEWPORT: шильда дня, под ней лента поверки — ячейки по числу
+      плановых подходов, заполняются киноварью. Ниже карты упражнений: тёмный
+      корпус, внутри светлая пластина с весом и повторами. Липкая строка ввода
+      снизу, главное действие — пластина во всю ширину.
+      FORM: метрология и поверка; кандидат 7 из семи; seed cef52bc0.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the
+      finish review, the verdict, DESIGN.md, and every shipping raster carrying
+      its provenance
+    -->
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

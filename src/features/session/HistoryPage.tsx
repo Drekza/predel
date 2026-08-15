@@ -60,15 +60,14 @@ export function HistoryPage() {
           Показать ещё
         </Button>
       ) : (
-        <p className="py-2 text-center font-mono text-hud uppercase text-muted/60">
-          это всё
-        </p>
+        <p className="mark py-2 text-center text-ink-muted/60">это всё</p>
       )}
     </div>
   )
 }
 
-function SessionRow({ row, onOpen }: { row: HistoryRow; onOpen: () => void }) {
+/** Экспортируется ещё и для витрины дизайн-системы (`src/dev/Showroom.tsx`). */
+export function SessionRow({ row, onOpen }: { row: HistoryRow; onOpen: () => void }) {
   const { session, dayName, totals } = row
   const abandoned = session.state === 'abandoned'
   const hasCardio = totals.cardioSec > 0 || totals.cardioDistanceM > 0
@@ -77,40 +76,40 @@ function SessionRow({ row, onOpen }: { row: HistoryRow; onOpen: () => void }) {
     <button
       type="button"
       onClick={onOpen}
-      className="tap flex w-full items-center gap-3 rounded-lg border border-line bg-surface px-3.5 py-3 text-left transition-colors duration-100 ease-hud hover:border-accent/40"
+      className="bezel tap flex w-full items-center gap-3 rounded-lg bg-panel px-3.5 py-3 text-left transition-colors duration-100 ease-station hover:bg-panel-2"
     >
       <div className="min-w-0 flex-1">
         <div className="flex items-baseline gap-2">
-          <span className="font-mono text-hud uppercase text-muted">
-            {formatRelativeDay(session.started_at)}
-          </span>
-          <span className="font-mono text-hud text-muted/60 tabular-nums">
+          <span className="num text-xs text-ink">{formatRelativeDay(session.started_at)}</span>
+          <span className="num text-xs text-ink-muted/70">
             {formatTime(session.started_at)}
           </span>
           {abandoned ? (
-            <span className="font-mono text-[0.5625rem] tracking-label uppercase text-warn">
+            <span className="font-stencil text-[0.625rem] font-medium tracking-wide-mark uppercase text-warn">
               прервана
             </span>
           ) : null}
         </div>
 
-        <p className="mt-1 truncate text-[0.9375rem] leading-tight font-semibold text-text">
+        <p className="mt-1.5 truncate text-[0.9375rem] leading-tight font-semibold text-ink">
           {dayName ?? 'Свободная тренировка'}
         </p>
 
-        <p className="mt-1 font-mono text-hud tracking-normal text-muted tabular-nums">
+        {/* Итоги поверенной тренировки напечатаны на пластине — их читают, а не листают. */}
+        <p className="plate num mt-2 rounded-xs px-2 py-1 text-xs leading-snug">
           {formatDurationMs(totals.durationMs)} · {totals.setCount} подх. ·{' '}
           {formatVolume(totals.volumeKg)}
         </p>
 
         {hasCardio ? (
-          <p className="mt-0.5 font-mono text-hud tracking-normal text-muted/70 tabular-nums">
-            кардио: {formatCardio(totals.cardioSec, totals.cardioDistanceM)}
+          <p className="mark mt-1.5 text-ink-muted">
+            кардио:{' '}
+            <span className="num">{formatCardio(totals.cardioSec, totals.cardioDistanceM)}</span>
           </p>
         ) : null}
       </div>
 
-      <ChevronRight size={16} aria-hidden className="shrink-0 text-muted" />
+      <ChevronRight size={16} aria-hidden className="shrink-0 text-ink-muted" />
     </button>
   )
 }

@@ -27,10 +27,14 @@ const KIND_OPTIONS: readonly { value: ExerciseKind; label: string }[] = [
 ]
 
 const chipBase = cn(
-  'tap inline-flex h-11 items-center rounded-md border px-3',
-  'font-mono text-[0.6875rem] uppercase tracking-label',
-  'transition-colors duration-100 ease-hud',
+  'tap mark inline-flex h-11 items-center rounded-sm px-3',
+  'transition-[background-color,color,box-shadow] duration-100 ease-station',
 )
+
+/** Невыбранный чип — гнездо корпуса, отмеченный поднимается пластиной. */
+function chipClass(checked: boolean): string {
+  return cn(chipBase, checked ? 'plate text-plate-ink' : 'recess text-ink-muted hover:text-ink')
+}
 
 function toggle(list: string[], value: string): string[] {
   return list.includes(value) ? list.filter((item) => item !== value) : [...list, value]
@@ -93,23 +97,14 @@ export function CustomExerciseForm({
       <div className="flex flex-col gap-2.5">
         {MUSCLE_GROUPS.map((group) => (
           <div key={group.stat} className="flex flex-col gap-1.5">
-            <span className="font-mono text-[0.625rem] uppercase tracking-label text-muted/80">
+            <span className="font-stencil text-[0.625rem] font-medium tracking-wide-mark uppercase text-ink-muted/80">
               {group.label}
             </span>
             <div className="flex flex-wrap gap-1.5">
               {group.muscles.map((muscle) => {
                 const checked = selected.includes(muscle.value)
                 return (
-                  <label
-                    key={muscle.value}
-                    className={cn(
-                      chipBase,
-                      'cursor-pointer',
-                      checked
-                        ? 'border-accent/70 bg-surface-2 text-accent'
-                        : 'border-line bg-surface text-muted hover:text-text',
-                    )}
-                  >
+                  <label key={muscle.value} className={cn(chipClass(checked), 'cursor-pointer')}>
                     <input
                       type="checkbox"
                       className="sr-only"
@@ -161,12 +156,7 @@ export function CustomExerciseForm({
                 role="radio"
                 aria-checked={checked}
                 onClick={() => setEquipment(checked ? null : option.value)}
-                className={cn(
-                  chipBase,
-                  checked
-                    ? 'border-accent/70 bg-surface-2 text-accent'
-                    : 'border-line bg-surface text-muted hover:text-text',
-                )}
+                className={chipClass(checked)}
               >
                 {option.label}
               </button>
@@ -206,14 +196,14 @@ export function CustomExerciseForm({
           type="button"
           onClick={() => setShowSecondary((prev) => !prev)}
           aria-expanded={showSecondary}
-          className="tap self-start font-mono text-hud uppercase text-accent"
+          className="tap mark self-start py-2 text-ink"
         >
           {showSecondary ? 'Скрыть дополнительные мышцы' : 'Дополнительные мышцы'}
         </button>
         {showSecondary ? renderMuscleChips('secondary') : null}
       </div>
 
-      {submitError ? <p className="text-sm text-danger">{submitError}</p> : null}
+      {submitError ? <p className="text-sm text-stamp-lit">{submitError}</p> : null}
 
       <div className="flex gap-2 pt-1">
         {onCancel ? (

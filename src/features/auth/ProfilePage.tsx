@@ -95,7 +95,7 @@ export function ProfilePage() {
       <Card>
         <CardHeader>
           <span>профиль</span>
-          <span className="font-mono normal-case tracking-normal text-muted">
+          <span className="num min-w-0 truncate normal-case tracking-normal text-ink-muted">
             {user?.email ?? '—'}
           </span>
         </CardHeader>
@@ -153,12 +153,12 @@ export function ProfilePage() {
                 Сохранить
               </Button>
               {updateProfile.isSuccess ? (
-                <span className="shrink-0 font-mono text-hud uppercase text-ok">сохранено</span>
+                <span className="mark shrink-0 text-ok">сохранено</span>
               ) : null}
             </div>
 
             {formError ? (
-              <p role="alert" className="text-sm text-danger">
+              <p role="alert" className="text-sm text-stamp-lit">
                 {formError}
               </p>
             ) : null}
@@ -180,9 +180,9 @@ export function ProfilePage() {
 
           {queue.pending > 0 ? (
             <div className="flex flex-col gap-2">
-              <p className="flex items-center gap-2 text-sm text-text">
-                <CloudUpload size={16} className="text-accent" aria-hidden />
-                <span className="font-mono tabular-nums">{queue.pending}</span>
+              <p className="flex items-center gap-2 text-sm text-ink">
+                <CloudUpload size={16} className="shrink-0 text-ink-muted" aria-hidden />
+                <span className="plate num rounded-xs px-1.5 py-0.5 text-xs">{queue.pending}</span>
                 {pluralRu(queue.pending, 'операция ждёт', 'операции ждут', 'операций ждут')} отправки
               </p>
               <Button variant="outline" size="sm" onClick={queue.flush}>
@@ -193,13 +193,15 @@ export function ProfilePage() {
 
           {failedCount > 0 ? (
             <div className="flex flex-col gap-2">
-              <p className="flex items-center gap-2 text-sm text-danger">
-                <CircleAlert size={16} aria-hidden />
-                <span className="font-mono tabular-nums">{failedCount}</span>
+              <p className="flex items-center gap-2 text-sm text-stamp-lit">
+                <CircleAlert size={16} className="shrink-0" aria-hidden />
+                <span className="plate num rounded-xs px-1.5 py-0.5 text-xs">{failedCount}</span>
                 {pluralRu(failedCount, 'операция не ушла', 'операции не ушли', 'операций не ушли')}
               </p>
-              {firstFailedError ? <p className="text-xs text-muted">{firstFailedError}</p> : null}
-              <p className="text-xs text-muted">
+              {firstFailedError ? (
+                <p className="text-xs text-ink-muted">{firstFailedError}</p>
+              ) : null}
+              <p className="text-xs text-ink-muted">
                 Пока они в очереди, остальное на сервер не уходит
               </p>
               <div className="flex gap-2">
@@ -222,7 +224,7 @@ export function ProfilePage() {
             </div>
           ) : null}
 
-          <p className="text-xs text-muted">
+          <p className="text-xs text-ink-muted">
             Подходы пишутся сразу на экране, а на сервер уходят фоном. Пока очередь не пуста,
             приложение лучше не закрывать
           </p>
@@ -232,14 +234,14 @@ export function ProfilePage() {
       <Card>
         <CardHeader>
           <span>приложение</span>
-          <span className="font-mono tabular-nums normal-case tracking-normal">
-            версия {APP_VERSION}
+          <span className="normal-case tracking-normal">
+            версия <span className="num">{APP_VERSION}</span>
           </span>
         </CardHeader>
         <CardFooter className="flex-col items-stretch gap-2">
           {confirmingSignOut ? (
             <>
-              <p className="text-sm text-muted">
+              <p className="text-sm text-ink-muted">
                 Выйти? Все тренировки останутся на сервере, вход снова по ссылке из письма
               </p>
               <div className="flex gap-2">
@@ -264,7 +266,7 @@ export function ProfilePage() {
           )}
 
           {signOutError ? (
-            <p role="alert" className="text-sm text-danger">
+            <p role="alert" className="text-sm text-stamp-lit">
               {signOutError}
             </p>
           ) : null}

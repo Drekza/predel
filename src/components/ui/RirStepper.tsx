@@ -18,8 +18,9 @@ function pluralReps(n: number): string {
 }
 
 /**
- * Запас повторов (RIR) на подход. Целевое значение помечено штрихом сверху —
- * пользователь видит цель, не читая подсказку.
+ * Запас повторов (RIR) на подход. Шесть гнёзд в корпусе: выбранное поднимается
+ * пластиной, цель помечена киноварной риской — пользователь видит её, не читая
+ * подсказку.
  */
 export function RirStepper({ value, onChange, targetRir }: RirStepperProps) {
   return (
@@ -27,7 +28,7 @@ export function RirStepper({ value, onChange, targetRir }: RirStepperProps) {
       <div
         role="radiogroup"
         aria-label="Запас повторов"
-        className="grid grid-cols-6 gap-1 rounded-md border border-line bg-surface-2 p-1"
+        className="recess grid grid-cols-6 gap-1 rounded-sm p-1"
       >
         {RIR_VALUES.map((rir) => {
           const selected = value === rir
@@ -41,21 +42,17 @@ export function RirStepper({ value, onChange, targetRir }: RirStepperProps) {
               aria-label={`запас ${rir} ${pluralReps(rir)}`}
               onClick={() => onChange(selected ? null : rir)}
               className={cn(
-                'tap relative grid h-11 place-items-center rounded-xs',
-                'font-mono text-base font-semibold tabular-nums',
-                'transition-[background-color,color] duration-100 ease-hud',
+                'tap num relative grid h-11 place-items-center rounded-xs text-tally',
+                'transition-[background-color,color] duration-100 ease-station',
                 selected
-                  ? 'bg-accent text-bg'
+                  ? 'plate text-plate-ink'
                   : isTarget
-                    ? 'text-accent hover:bg-accent/10'
-                    : 'text-muted hover:bg-surface hover:text-text',
+                    ? 'text-ink hover:bg-panel'
+                    : 'text-ink-muted hover:bg-panel hover:text-ink',
               )}
             >
               {isTarget && !selected ? (
-                <span
-                  aria-hidden
-                  className="absolute inset-x-2.5 top-0.5 h-px bg-accent/70"
-                />
+                <span aria-hidden className="absolute inset-x-3 top-1 h-0.5 bg-stamp" />
               ) : null}
               {rir}
             </button>
@@ -63,9 +60,7 @@ export function RirStepper({ value, onChange, targetRir }: RirStepperProps) {
         })}
       </div>
       {targetRir !== undefined ? (
-        <span className="font-mono text-hud uppercase text-muted">
-          цель — запас {targetRir}
-        </span>
+        <span className="mark text-ink-muted">цель — запас {targetRir}</span>
       ) : null}
     </div>
   )

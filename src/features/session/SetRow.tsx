@@ -61,8 +61,8 @@ export function SetRow({ set, index, targetRir, weightStepKg, onSave, onDelete }
 
   if (mode === 'confirm-delete') {
     return (
-      <div className="flex items-center gap-2 rounded-md border border-danger/50 bg-surface-2 px-3 py-2">
-        <span className="flex-1 text-sm text-text">Удалить подход {index}?</span>
+      <div className="bezel flex items-center gap-2 rounded-sm bg-panel-2 px-3 py-2">
+        <span className="flex-1 text-sm text-ink">Удалить подход {index}?</span>
         <Button size="sm" variant="ghost" onClick={() => setMode('view')}>
           Отмена
         </Button>
@@ -79,7 +79,7 @@ export function SetRow({ set, index, targetRir, weightStepKg, onSave, onDelete }
 
   return (
     <div
-      className="relative overflow-hidden rounded-md"
+      className="relative overflow-hidden rounded-sm"
       onPointerDown={(event) => {
         // Мышью не свайпают — там есть корзина.
         if (event.pointerType === 'mouse') return
@@ -103,16 +103,20 @@ export function SetRow({ set, index, targetRir, weightStepKg, onSave, onDelete }
       {/* Подложка проступает при свайпе — намёк, что жест ведёт к удалению. */}
       <span
         aria-hidden
-        className="absolute inset-y-0 right-0 grid w-20 place-items-center text-danger"
+        className="absolute inset-y-0 right-0 grid w-20 place-items-center text-stamp"
       >
         <Trash2 size={16} aria-hidden />
       </span>
 
       <div
-        className="relative flex items-center gap-2 rounded-md border border-line/70 bg-surface-2 pr-1 pl-2"
+        className="recess relative flex items-center gap-2.5 rounded-sm py-1 pr-1 pl-1.5"
         style={offset === 0 ? undefined : { transform: `translateX(${offset}px)` }}
       >
-        <span className="w-5 shrink-0 text-center font-mono text-hud text-muted tabular-nums">
+        {/* Клеймо подхода: оттиск ставится в момент записи и больше не двигается. */}
+        <span
+          aria-hidden
+          className="stamped animate-stamp num grid size-7 shrink-0 place-items-center rounded-xs text-xs font-semibold"
+        >
           {index}
         </span>
 
@@ -120,14 +124,9 @@ export function SetRow({ set, index, targetRir, weightStepKg, onSave, onDelete }
           type="button"
           onClick={() => setMode('edit')}
           aria-label={`Подход ${index}: ${label}. Изменить`}
-          className="tap flex min-w-0 flex-1 items-center gap-2 py-2.5 text-left"
+          className="tap flex min-w-0 flex-1 items-center gap-2 py-2 text-left"
         >
-          <span
-            className={cn(
-              'truncate font-mono text-sm tabular-nums',
-              isCardio ? 'text-muted' : 'text-text',
-            )}
-          >
+          <span className={cn('num truncate text-sm', isCardio ? 'text-ink-muted' : 'text-ink')}>
             {label}
           </span>
           {set.failed ? (
@@ -135,24 +134,24 @@ export function SetRow({ set, index, targetRir, weightStepKg, onSave, onDelete }
               // Сервер отказал: подход виден, но за настоящий его выдавать нельзя.
               title="Сервер не принял"
               aria-label="Сервер не принял"
-              className="size-1.5 shrink-0 rounded-full bg-warn"
+              className="size-1.5 shrink-0 bg-warn"
             />
           ) : set.pending ? (
             <span
               // Не ошибка, а состояние: подход записан, сеть догоняет.
               title="Ещё не отправлено"
               aria-label="Ещё не отправлено"
-              className="size-1.5 shrink-0 rounded-full bg-accent/70"
+              className="size-1.5 shrink-0 bg-ink-muted"
             />
           ) : null}
-          <Pencil size={13} aria-hidden className="ml-auto shrink-0 text-muted/50" />
+          <Pencil size={13} aria-hidden className="ml-auto shrink-0 text-ink-muted/60" />
         </button>
 
         <button
           type="button"
           onClick={() => setMode('confirm-delete')}
           aria-label={`Удалить подход ${index}`}
-          className="tap grid size-11 shrink-0 place-items-center rounded-md text-muted transition-colors duration-100 ease-hud hover:text-danger"
+          className="tap grid size-11 shrink-0 place-items-center rounded-sm text-ink-muted transition-colors duration-100 ease-station hover:text-stamp"
         >
           <Trash2 size={15} aria-hidden />
         </button>
@@ -172,14 +171,7 @@ type SetEditorProps = {
   onSave: (patch: SetPatch) => void
 }
 
-function SetEditor({
-  set,
-  index,
-  targetRir,
-  weightStepKg,
-  onCancel,
-  onSave,
-}: SetEditorProps) {
+function SetEditor({ set, index, targetRir, weightStepKg, onCancel, onSave }: SetEditorProps) {
   const isCardio = set.kind === 'cardio'
 
   const [weightKg, setWeightKg] = useState<number | null>(set.weight_kg)
@@ -212,8 +204,8 @@ function SetEditor({
   }
 
   return (
-    <div className="flex flex-col gap-2.5 rounded-md border border-accent/40 bg-surface-2 px-3 py-3">
-      <span className="font-mono text-hud uppercase text-accent">подход {index}</span>
+    <div className="flex flex-col gap-2.5 rounded-sm border border-stamp/60 bg-panel-2 px-3 py-3">
+      <span className="mark text-stamp-lit">подход {index}</span>
 
       {isCardio ? (
         <>
@@ -263,11 +255,7 @@ function SetEditor({
               aria-label="Повторы"
             />
           </Labelled>
-          <RirStepper
-            value={rir}
-            onChange={setRir}
-            targetRir={targetRir ?? undefined}
-          />
+          <RirStepper value={rir} onChange={setRir} targetRir={targetRir ?? undefined} />
         </>
       )}
 
@@ -288,8 +276,8 @@ function SetEditor({
 /** Подпись над степпером. Не <label>: внутри группа кнопок, а не одно поле. */
 function Labelled({ label, children }: { label: string; children: ReactNode }) {
   return (
-    <div className="flex flex-col gap-1">
-      <span className="font-mono text-hud uppercase text-muted">{label}</span>
+    <div className="flex flex-col gap-1.5">
+      <span className="mark text-ink-muted">{label}</span>
       {children}
     </div>
   )

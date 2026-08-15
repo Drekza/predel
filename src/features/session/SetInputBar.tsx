@@ -69,9 +69,11 @@ export function SetInputBar({
       onFocusCapture={handleFocus}
       className={cn(
         // Липнет над нижней навигацией: у длинного блока с пятью подходами
-        // кнопка записи остаётся под большим пальцем.
-        'sticky bottom-[calc(env(safe-area-inset-bottom)+4rem)] z-10',
-        'flex scroll-mt-24 flex-col gap-2.5 rounded-md border border-line/70 bg-surface px-3 py-3',
+        // кнопка записи остаётся под большим пальцем. Отступ считан по факту:
+        // клавиша навигации 64px + отбивка 8px + кромка — иначе низ пластины
+        // «записать подход» уходит под навигацию.
+        'sticky bottom-[calc(env(safe-area-inset-bottom)+4.75rem)] z-10',
+        'bezel flex scroll-mt-24 flex-col gap-2.5 rounded-sm bg-panel-2 px-3 py-3',
       )}
     >
       {draft.kind === 'cardio' ? (
@@ -112,7 +114,9 @@ function StrengthFields({
   const patch = (next: Partial<StrengthSetDraft>) => onChange({ ...draft, ...next })
 
   return (
-    <fieldset disabled={disabled} className="flex flex-col gap-2.5">
+    // min-w-0 гасит браузерный min-inline-size: min-content у fieldset —
+    // без него поле в фокусе распирает набор за края карточки.
+    <fieldset disabled={disabled} className="flex min-w-0 flex-col gap-2.5">
       <Labelled label="вес, кг">
         <NumberStepper
           value={draft.weightKg}
@@ -163,7 +167,8 @@ function CardioFields({
   const patch = (next: Partial<CardioSetDraft>) => onChange({ ...draft, ...next })
 
   return (
-    <fieldset disabled={disabled} className="flex flex-col gap-2.5">
+    // min-w-0 — см. StrengthFields.
+    <fieldset disabled={disabled} className="flex min-w-0 flex-col gap-2.5">
       <Labelled label="время">
         <DurationStepper
           valueSec={draft.durationSec}
@@ -185,6 +190,8 @@ function CardioFields({
           max={CARDIO_DISTANCE_MAX_M / KM}
           precision={2}
           unit="км"
+          // В зале только lg: время и дистанция стоят рядом и должны быть одной высоты.
+          size="lg"
           aria-label="Дистанция в километрах"
         />
       </Labelled>
@@ -202,10 +209,10 @@ function Labelled({
   children: ReactNode
 }) {
   return (
-    <div className="flex flex-col gap-1">
-      <span className="font-mono text-hud uppercase text-muted">
+    <div className="flex flex-col gap-1.5">
+      <span className="mark text-ink-muted">
         {label}
-        {hint ? <span className="ml-1.5 normal-case opacity-70">({hint})</span> : null}
+        {hint ? <span className="ml-1.5 normal-case">({hint})</span> : null}
       </span>
       {children}
     </div>

@@ -46,10 +46,7 @@ export function ExerciseBlock({
     dirty: false,
     draft: draftForExercise(view, historySet),
   }))
-  if (
-    state.signature !== signature ||
-    (!state.dirty && state.historyMark !== historyMark)
-  ) {
+  if (state.signature !== signature || (!state.dirty && state.historyMark !== historyMark)) {
     setState({
       signature,
       historyMark,
@@ -66,9 +63,9 @@ export function ExerciseBlock({
   return (
     <section
       className={cn(
-        'flex flex-col gap-2.5 rounded-lg border bg-surface px-3 pt-3 pb-3 shadow-hud',
-        // Кардио — разминка, а не основная работа: рамка тише, заголовок глуше.
-        isCardio ? 'border-line/50' : 'hud-brackets border-line',
+        'flex flex-col gap-2.5 rounded-lg px-3 pt-3 pb-3',
+        // Кардио — разминка, а не основная работа: корпус тише, заголовок глуше.
+        isCardio ? 'border border-edge/60 bg-panel/60' : 'bezel bg-panel',
       )}
     >
       <header className="flex items-start justify-between gap-3">
@@ -76,30 +73,23 @@ export function ExerciseBlock({
           <h2
             className={cn(
               'truncate text-[0.9375rem] leading-tight font-semibold',
-              isCardio ? 'text-muted' : 'text-text',
+              isCardio ? 'text-ink-muted' : 'text-ink',
             )}
           >
             {view.exercise.name_ru}
           </h2>
-          <p className="mt-1 font-mono text-hud tracking-normal uppercase text-muted">
-            {targetLine(view)}
-          </p>
+          <p className="mark mt-1.5 text-ink-muted">{targetLine(view)}</p>
         </div>
 
-        <div className="flex shrink-0 flex-col items-end gap-1">
-          {isCardio ? (
-            <span className="rounded-xs border border-line px-1.5 py-0.5 font-mono text-[0.5625rem] tracking-label uppercase text-muted">
-              разминка
-            </span>
-          ) : null}
-          <span className="font-mono text-sm font-semibold text-text tabular-nums">
+        <div className="flex shrink-0 flex-col items-end gap-1.5">
+          {/* Счётчик поверенных подходов стоит на пластине — как отпечатанный. */}
+          <span className="plate num rounded-xs px-2 py-0.5 text-sm leading-tight">
             {doneSets}
-            <span className="text-muted">/{view.targetSets}</span>
+            <span className="text-plate-muted">/{view.targetSets}</span>
           </span>
+          {isCardio ? <span className="mark text-ink-muted">разминка</span> : null}
           {!isCardio && volumeKg > 0 ? (
-            <span className="font-mono text-hud text-muted tabular-nums">
-              {formatVolume(volumeKg)}
-            </span>
+            <span className="num text-xs text-ink-muted">{formatVolume(volumeKg)}</span>
           ) : null}
         </div>
       </header>
@@ -132,4 +122,3 @@ export function ExerciseBlock({
     </section>
   )
 }
-

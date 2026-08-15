@@ -24,14 +24,14 @@ export function StatBadge({ stat, label, value, className }: StatBadgeProps) {
   return (
     <span
       className={cn(
-        'inline-flex items-center gap-1.5 rounded-xs border border-line bg-surface-2 py-1 pr-2 pl-1.5',
+        'bezel inline-flex items-center gap-1.5 rounded-xs bg-panel-2 py-1 pr-2 pl-1.5',
         className,
       )}
     >
-      <span aria-hidden className="h-3 w-0.5" style={{ backgroundColor: color }} />
-      <span className="font-mono text-hud uppercase text-muted">{label}</span>
+      <span aria-hidden className="h-3.5 w-1" style={{ backgroundColor: color }} />
+      <span className="mark text-ink-muted">{label}</span>
       {value !== undefined && value !== null ? (
-        <span className="font-mono text-xs font-semibold tabular-nums" style={{ color }}>
+        <span className="num text-xs font-semibold" style={{ color }}>
           {value}
         </span>
       ) : null}

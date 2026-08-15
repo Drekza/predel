@@ -66,10 +66,12 @@ export function StepperButton({
       aria-label={label}
       disabled={disabled}
       className={cn(
-        'tap grid shrink-0 place-items-center rounded-md border border-line bg-surface-2 text-accent',
-        'transition-[background-color,border-color,transform] duration-75 ease-hud',
-        'hover:border-accent/50 active:scale-95 active:bg-accent/15',
-        'disabled:border-line/50 disabled:bg-surface disabled:text-muted/40 disabled:active:scale-100',
+        // Не киноварью: клеймо принадлежит отметке сделанного и необратимому,
+        // а шаг ±2,5 кг обратим и повторяется сорок раз за тренировку.
+        'tap bezel grid shrink-0 place-items-center rounded-sm bg-panel-2 text-ink',
+        'transition-[background-color,color,transform] duration-75 ease-station',
+        'hover:bg-panel active:translate-y-px',
+        'disabled:bg-panel disabled:text-ink-muted/35 disabled:shadow-none disabled:active:translate-y-0',
         size === 'lg' ? 'h-14 w-14' : 'h-11 w-11',
         className,
       )}

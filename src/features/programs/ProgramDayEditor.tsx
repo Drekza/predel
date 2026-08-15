@@ -75,9 +75,10 @@ export function ProgramDayEditor({
 
   return (
     <Card>
-      <CardHeader className="items-start">
-        <div className="flex min-w-0 flex-1 items-center gap-2">
-          <span className="font-mono text-hud tabular-nums text-accent">
+      {/* Имя дня редактируют пальцем: поле занимает строку, клавиши уходят вниз. */}
+      <CardHeader className="flex-col items-stretch gap-2">
+        <div className="flex items-center gap-2">
+          <span className="num shrink-0 text-xs tracking-normal text-ink">
             Д{String(index + 1).padStart(2, '0')}
           </span>
           <Input
@@ -95,11 +96,11 @@ export function ProgramDayEditor({
                 setNameDraft(null)
               }
             }}
-            className="h-11 border-transparent bg-transparent px-2 text-sm normal-case tracking-normal text-text"
+            className="h-11 px-2 font-sans text-sm normal-case tracking-normal"
           />
         </div>
 
-        <div className="flex shrink-0 items-center gap-1">
+        <div className="flex shrink-0 items-center justify-end gap-1">
           <HeaderButton
             label="переместить день выше"
             disabled={!canMoveUp}
@@ -125,8 +126,8 @@ export function ProgramDayEditor({
       </CardHeader>
 
       {confirmingDelete ? (
-        <div className="flex items-center gap-2 border-b border-line/70 bg-danger/5 px-4 py-2.5">
-          <span className="flex-1 text-xs text-muted">
+        <div className="flex items-center gap-2 border-b border-stamp/60 bg-stamp/10 px-4 py-2.5">
+          <span className="flex-1 text-sm text-ink">
             Удалить день вместе с упражнениями?
           </span>
           <Button
@@ -147,13 +148,14 @@ export function ProgramDayEditor({
 
       <CardBody className="pt-3">
         {day.items.length === 0 ? (
-          <p className="rounded-md border border-dashed border-line px-3 py-6 text-center text-sm text-muted">
+          <p className="rounded-sm border border-dashed border-edge px-3 py-6 text-center text-sm text-ink-muted">
             В дне пока нет упражнений
           </p>
         ) : (
           <>
-            <p className="mb-2.5 font-mono text-hud uppercase text-muted">
-              {day.items.length} упр · {formatSetsWord(totalSets)}
+            <p className="mark mb-2.5 text-ink-muted">
+              <span className="num text-ink">{day.items.length}</span> упр ·{' '}
+              {formatSetsWord(totalSets)}
             </p>
             <ul className="flex flex-col gap-2.5">
               {day.items.map((item, itemIndex) => (
@@ -210,13 +212,13 @@ function HeaderButton({
       disabled={disabled}
       onClick={onClick}
       className={cn(
-        'tap grid h-11 w-11 place-items-center rounded-md',
-        'transition-colors duration-100 ease-hud',
+        'tap grid h-11 w-11 place-items-center rounded-sm',
+        'transition-colors duration-100 ease-station',
         disabled
-          ? 'text-muted/40'
+          ? 'text-ink-muted/40'
           : danger
-            ? 'text-muted hover:bg-surface-2 hover:text-danger'
-            : 'text-muted hover:bg-surface-2 hover:text-accent',
+            ? 'text-ink-muted hover:bg-panel-2 hover:text-stamp-lit'
+            : 'text-ink-muted hover:bg-panel-2 hover:text-ink',
       )}
     >
       {children}

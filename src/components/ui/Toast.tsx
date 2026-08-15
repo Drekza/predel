@@ -18,10 +18,11 @@ const ToastContext = createContext<ToastApi | null>(null)
 
 const LIFETIME_MS = 3200
 
-const RAIL: Record<ToastKind, string> = {
-  info: 'border-l-accent',
-  ok: 'border-l-ok',
-  error: 'border-l-danger',
+/** Вид сообщения читается по квадратной марке слева, а не по цветной полосе. */
+const MARK: Record<ToastKind, string> = {
+  info: 'bg-ink-muted',
+  ok: 'bg-ok',
+  error: 'bg-stamp',
 }
 
 export function ToastProvider({ children }: { children: ReactNode }) {
@@ -57,12 +58,9 @@ export function ToastProvider({ children }: { children: ReactNode }) {
         {items.map((item) => (
           <div
             key={item.id}
-            className={cn(
-              'animate-toast-in w-full max-w-[26rem] rounded-md border border-line border-l-2 bg-surface px-3.5 py-2.5',
-              'text-sm text-text shadow-hud',
-              RAIL[item.kind],
-            )}
+            className="animate-toast-in bezel flex w-full max-w-[26rem] items-center gap-2.5 rounded-sm bg-panel px-3.5 py-2.5 text-sm text-ink"
           >
+            <span aria-hidden className={cn('size-2 shrink-0 rounded-xs', MARK[item.kind])} />
             {item.msg}
           </div>
         ))}

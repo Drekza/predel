@@ -21,7 +21,11 @@ export type AuthContextValue = {
   signingOut: boolean
 }
 
-const AuthContext = createContext<AuthContextValue | null>(null)
+/**
+ * Экспортируется ради витрины (`src/dev/Showroom.tsx`): экран входа иначе
+ * невозможно ни увидеть, ни снять, не разлогинив живого пользователя.
+ */
+export const AuthContext = createContext<AuthContextValue | null>(null)
 
 /**
  * Хвосты magic link в адресной строке. Supabase их уже разобрал

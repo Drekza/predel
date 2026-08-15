@@ -9,6 +9,7 @@ type SegmentedProps<T extends string> = {
   className?: string
 }
 
+/** Переключатель — те же гнёзда корпуса: выбранное поднимается пластиной. */
 export function Segmented<T extends string>({
   options,
   value,
@@ -21,7 +22,7 @@ export function Segmented<T extends string>({
     <div
       role="radiogroup"
       aria-label={ariaLabel}
-      className={cn('flex gap-1 rounded-md border border-line bg-surface-2 p-1', className)}
+      className={cn('recess flex gap-1 rounded-sm p-1', className)}
     >
       {options.map((option) => {
         const selected = option.value === value
@@ -33,12 +34,10 @@ export function Segmented<T extends string>({
             aria-checked={selected}
             onClick={() => onChange(option.value)}
             className={cn(
-              'tap flex-1 rounded-xs px-3 font-mono text-hud uppercase',
-              'transition-[background-color,color] duration-100 ease-hud',
+              'tap mark flex-1 rounded-xs px-3',
+              'transition-[background-color,color] duration-100 ease-station',
               size === 'lg' ? 'h-12' : 'h-11',
-              selected
-                ? 'bg-accent text-bg'
-                : 'text-muted hover:bg-surface hover:text-text',
+              selected ? 'plate text-plate-ink' : 'text-ink-muted hover:bg-panel hover:text-ink',
             )}
           >
             {option.label}

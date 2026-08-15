@@ -181,51 +181,55 @@ export function ProgramItemRow({
       : formatStrengthSet(item.last_weight_kg, item.last_reps)
 
   return (
-    <li className="rounded-md border border-line bg-surface-2/60">
-      <div className="flex items-start gap-2 px-3 pt-3">
-        <span className="mt-1 font-mono text-hud tabular-nums text-muted">
-          {String(index + 1).padStart(2, '0')}
-        </span>
+    <li className="rounded-sm border border-edge bg-panel-2/60">
+      {/* Название занимает строку целиком: три клавиши по 44px рядом с ним
+          оставляли на телефоне сорок пикселей и резали его многоточием. */}
+      <div className="flex flex-col gap-1 px-3 pt-3">
+        <div className="flex items-baseline gap-2">
+          <span className="num shrink-0 text-xs text-ink-muted">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          <p className="min-w-0 flex-1 text-sm leading-snug text-ink">{item.exercise.name_ru}</p>
+        </div>
 
-        <div className="min-w-0 flex-1">
-          <p className="truncate text-sm text-text">{item.exercise.name_ru}</p>
-          <p className="mt-0.5 flex items-center gap-1.5 font-mono text-hud uppercase text-muted">
+        <div className="flex items-center gap-2">
+          <p className="mark flex min-w-0 flex-1 items-center gap-1.5 text-ink-muted">
             {isCardio ? <Timer size={12} aria-hidden /> : null}
             <span className="truncate">
               {isCardio ? 'кардио' : equipmentLabelRu(item.exercise.equipment)}
             </span>
           </p>
-        </div>
 
-        <div className="flex shrink-0 items-center gap-1">
-          <IconButton
-            label="переместить выше"
-            disabled={!canMoveUp}
-            onClick={() => onMove('up')}
-          >
-            <ChevronUp size={18} aria-hidden />
-          </IconButton>
-          <IconButton
-            label="переместить ниже"
-            disabled={!canMoveDown}
-            onClick={() => onMove('down')}
-          >
-            <ChevronDown size={18} aria-hidden />
-          </IconButton>
-          <IconButton
-            label="убрать упражнение"
-            danger
-            onClick={() => setConfirmingDelete((prev) => !prev)}
-          >
-            <Trash2 size={16} aria-hidden />
-          </IconButton>
+          <div className="flex shrink-0 items-center gap-1">
+            <IconButton
+              label="переместить выше"
+              disabled={!canMoveUp}
+              onClick={() => onMove('up')}
+            >
+              <ChevronUp size={18} aria-hidden />
+            </IconButton>
+            <IconButton
+              label="переместить ниже"
+              disabled={!canMoveDown}
+              onClick={() => onMove('down')}
+            >
+              <ChevronDown size={18} aria-hidden />
+            </IconButton>
+            <IconButton
+              label="убрать упражнение"
+              danger
+              onClick={() => setConfirmingDelete((prev) => !prev)}
+            >
+              <Trash2 size={16} aria-hidden />
+            </IconButton>
+          </div>
         </div>
       </div>
 
       {confirmingDelete ? (
         // Подтверждение инлайновое: модалок в приложении нет.
-        <div className="mt-2.5 flex items-center gap-2 border-t border-line/70 bg-danger/5 px-3 py-2.5">
-          <span className="flex-1 text-xs text-muted">Убрать упражнение из дня?</span>
+        <div className="mt-2.5 flex items-center gap-2 border-t border-stamp/60 bg-stamp/10 px-3 py-2.5">
+          <span className="flex-1 text-sm text-ink">Убрать упражнение из дня?</span>
           <Button size="sm" variant="danger" onClick={onDelete}>
             Убрать
           </Button>
@@ -308,8 +312,14 @@ export function ProgramItemRow({
           </>
         )}
 
-        <p className="font-mono text-hud text-muted">
-          {memory ? `в прошлый раз: ${memory}` : 'ещё не выполнялось'}
+        <p className="text-xs text-ink-muted">
+          {memory ? (
+            <>
+              в прошлый раз: <span className="num text-ink">{memory}</span>
+            </>
+          ) : (
+            'ещё не выполнялось'
+          )}
         </p>
       </div>
     </li>
@@ -327,9 +337,11 @@ function Control({
 }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <span className="font-mono text-hud uppercase text-muted">
+      <span className="mark text-ink-muted">
         {label}
-        {hint ? <span className="normal-case text-muted/70"> · {hint}</span> : null}
+        {hint ? (
+          <span className="font-sans normal-case tracking-normal text-ink-muted/70"> · {hint}</span>
+        ) : null}
       </span>
       {children}
     </div>
@@ -356,13 +368,13 @@ function IconButton({
       disabled={disabled}
       onClick={onClick}
       className={cn(
-        'tap grid h-11 w-11 place-items-center rounded-md border border-line',
-        'transition-colors duration-100 ease-hud',
+        'tap grid h-11 w-11 place-items-center rounded-sm border border-edge',
+        'transition-colors duration-100 ease-station',
         disabled
-          ? 'text-muted/40'
+          ? 'border-edge/50 text-ink-muted/40'
           : danger
-            ? 'text-muted hover:border-danger/60 hover:text-danger'
-            : 'text-muted hover:border-accent/50 hover:text-accent',
+            ? 'text-ink-muted hover:border-stamp/60 hover:text-stamp-lit'
+            : 'text-ink-muted hover:border-ink-muted/50 hover:text-ink',
       )}
     >
       {children}

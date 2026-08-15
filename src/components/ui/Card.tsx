@@ -3,26 +3,18 @@ import { cn } from '@/lib/cn'
 
 type SlotProps = { className?: string; children?: ReactNode }
 
+/** Секция корпуса: фаска со светом по верхней кромке и тенью по нижней. */
 export function Card({ className, children }: SlotProps) {
-  return (
-    <div
-      className={cn(
-        'hud-brackets rounded-lg border border-line bg-surface shadow-hud',
-        className,
-      )}
-    >
-      {children}
-    </div>
-  )
+  return <div className={cn('bezel rounded-lg bg-panel', className)}>{children}</div>
 }
 
-/** Шапка карточки уже говорит голосом HUD: моно, капс, разрядка. */
+/** Шапка карточки — метка на шильде: узкий капс с разрядкой. */
 export function CardHeader({ className, children }: SlotProps) {
   return (
     <div
       className={cn(
-        'flex items-center justify-between gap-3 border-b border-line/70 px-4 pt-3.5 pb-2.5',
-        'font-mono text-hud uppercase text-muted',
+        'flex items-center justify-between gap-3 border-b border-edge/70 px-4 pt-3 pb-2.5',
+        'mark text-ink-muted',
         className,
       )}
     >
@@ -37,9 +29,7 @@ export function CardBody({ className, children }: SlotProps) {
 
 export function CardFooter({ className, children }: SlotProps) {
   return (
-    <div
-      className={cn('flex items-center gap-2 border-t border-line/70 px-4 py-3', className)}
-    >
+    <div className={cn('flex items-center gap-2 border-t border-edge/70 px-4 py-3', className)}>
       {children}
     </div>
   )

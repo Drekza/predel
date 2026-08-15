@@ -56,8 +56,8 @@ export function ProgramsPage() {
 
   return (
     <div className="flex flex-col gap-4 px-4 pt-4 pb-[calc(env(safe-area-inset-bottom)+5rem)]">
-      <div className="flex items-center justify-between gap-3">
-        <h1 className="font-mono text-hud uppercase text-text">Программы</h1>
+      {/* Заголовок экрана уже стоит в шапке оболочки — второй раз его не пишем. */}
+      <div className="flex items-center justify-end gap-3">
         {list.length > 0 && !creating ? (
           <Button size="sm" variant="outline" onClick={openCreate}>
             <Plus size={16} aria-hidden />
@@ -161,7 +161,8 @@ type ProgramCardProps = {
   onActivate: () => void
 }
 
-function ProgramCard({
+/** Экспортируется ещё и для витрины дизайн-системы (`src/dev/Showroom.tsx`). */
+export function ProgramCard({
   program,
   confirming,
   busy,
@@ -182,35 +183,45 @@ function ProgramCard({
             to={`/programs/${program.id}`}
             className="group flex min-w-0 flex-1 items-center gap-2"
           >
-            <span className="min-w-0 flex-1 truncate text-base text-text group-hover:text-accent">
+            <span className="min-w-0 flex-1 truncate text-base text-ink group-hover:underline">
               {program.name}
             </span>
             <ChevronRight
               size={18}
               aria-hidden
-              className="shrink-0 text-muted group-hover:text-accent"
+              className="shrink-0 text-ink-muted transition-colors duration-100 ease-station group-hover:text-ink"
             />
           </Link>
         </div>
 
-        <div className="flex items-center gap-2 font-mono text-hud uppercase">
+        <div className="flex items-center gap-2">
+          {/* Клеймо активной: из всего списка помечена ровно одна программа. */}
           {program.is_active ? (
-            <span className="inline-flex items-center gap-1 text-accent">
+            <span className="stamped mark inline-flex items-center gap-1 rounded-xs px-1.5 py-0.5">
               <Check size={12} aria-hidden />
               активная
             </span>
           ) : null}
-          <span className="text-muted">{daysLabel}</span>
+          <span className="text-xs text-ink-muted">
+            {program.dayCount === 0 ? (
+              daysLabel
+            ) : (
+              <>
+                <span className="num text-ink">{program.dayCount}</span>{' '}
+                {pluralRu(program.dayCount, 'день', 'дня', 'дней')}
+              </>
+            )}
+          </span>
         </div>
 
         {program.dayNames.length > 0 ? (
-          <p className="truncate text-xs text-muted">{program.dayNames.join(' · ')}</p>
+          <p className="truncate text-xs text-ink-muted">{program.dayNames.join(' · ')}</p>
         ) : null}
       </CardBody>
 
       {confirming ? (
-        <CardFooter className="bg-danger/5">
-          <span className="flex-1 text-xs text-muted">
+        <CardFooter className="border-stamp/60 bg-stamp/10">
+          <span className="flex-1 text-xs text-ink">
             Удалить программу вместе с днями и упражнениями?
           </span>
           <Button size="sm" variant="danger" onClick={onDelete}>
@@ -243,7 +254,7 @@ function ProgramCard({
             type="button"
             aria-label="удалить программу"
             onClick={onToggleConfirm}
-            className="tap grid h-11 w-11 shrink-0 place-items-center rounded-md text-muted transition-colors duration-100 ease-hud hover:bg-surface-2 hover:text-danger"
+            className="tap grid h-11 w-11 shrink-0 place-items-center rounded-sm text-ink-muted transition-colors duration-100 ease-station hover:bg-panel-2 hover:text-stamp"
           >
             <Trash2 size={16} aria-hidden />
           </button>

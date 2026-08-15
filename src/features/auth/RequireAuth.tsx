@@ -10,10 +10,10 @@ function AuthPending() {
   return (
     <div
       role="status"
-      className="flex min-h-dvh flex-col items-center justify-center gap-3 bg-bg text-muted"
+      className="flex min-h-dvh flex-col items-center justify-center gap-3 bg-body text-ink-muted"
     >
-      <Spinner size={22} className="text-accent" />
-      <span className="font-mono text-hud uppercase">Проверяем доступ</span>
+      <Spinner size={22} className="text-ink" />
+      <span className="mark">Проверяем доступ</span>
     </div>
   )
 }

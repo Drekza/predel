@@ -44,7 +44,7 @@ export function ProgramEditorPage() {
     <div className="flex flex-col gap-4 px-4 pt-4 pb-[calc(env(safe-area-inset-bottom)+5rem)]">
       <Link
         to="/programs"
-        className="inline-flex items-center gap-1.5 font-mono text-hud uppercase text-muted transition-colors duration-100 hover:text-accent"
+        className="mark inline-flex items-center gap-1.5 text-ink-muted transition-colors duration-100 ease-station hover:text-ink"
       >
         <ArrowLeft size={14} aria-hidden />
         Программы
@@ -70,9 +70,9 @@ export function ProgramEditorPage() {
         <>
           <div className="flex flex-col gap-1.5">
             <div className="flex items-center justify-between gap-2">
-              <span className="font-mono text-hud uppercase text-muted">Название программы</span>
+              <span className="mark text-ink-muted">Название программы</span>
               {program.is_active ? (
-                <span className="font-mono text-hud uppercase text-accent">активная</span>
+                <span className="stamped mark rounded-xs px-1.5 py-0.5">активная</span>
               ) : null}
             </div>
             <Input

@@ -36,18 +36,13 @@ type KindFilter = StatKey | 'cardio'
 const SEARCH_DEBOUNCE_MS = 180
 
 const chipBase = cn(
-  'tap inline-flex h-11 shrink-0 items-center rounded-md border px-3',
-  'font-mono text-[0.6875rem] uppercase tracking-label',
-  'transition-colors duration-100 ease-hud',
+  'tap mark inline-flex h-11 shrink-0 items-center rounded-sm px-3',
+  'transition-[background-color,color,box-shadow] duration-100 ease-station',
 )
 
+/** Невыбранный фильтр — гнездо корпуса, выбранный поднимается пластиной. */
 function chipClass(active: boolean): string {
-  return cn(
-    chipBase,
-    active
-      ? 'border-accent/70 bg-surface-2 text-accent'
-      : 'border-line bg-surface text-muted hover:text-text',
-  )
+  return cn(chipBase, active ? 'plate text-plate-ink' : 'recess text-ink-muted hover:text-ink')
 }
 
 /** На телефоне автофокус выбрасывает клавиатуру поверх списка — этого не делаем. */
@@ -143,7 +138,8 @@ function PickerContent({ open, onClose, onPick, onSelect, excludeIds }: Exercise
             <Search
               size={16}
               aria-hidden
-              className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-muted"
+              // Поле — пластина, значок на ней печатается тёмным.
+              className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-plate-muted"
             />
             <Input
               type="search"
@@ -210,7 +206,7 @@ function PickerContent({ open, onClose, onPick, onSelect, excludeIds }: Exercise
               type="button"
               aria-expanded={showEquipment}
               onClick={() => setShowEquipment((prev) => !prev)}
-              className="tap font-mono text-hud uppercase text-accent"
+              className="tap mark py-2 text-ink"
             >
               Снаряд{equipment ? ': выбран' : ''}
             </button>
@@ -218,7 +214,7 @@ function PickerContent({ open, onClose, onPick, onSelect, excludeIds }: Exercise
               <button
                 type="button"
                 onClick={() => setEquipment(null)}
-                className="tap font-mono text-hud uppercase text-muted hover:text-text"
+                className="tap mark py-2 text-ink-muted hover:text-ink"
               >
                 Сбросить
               </button>
@@ -244,13 +240,13 @@ function PickerContent({ open, onClose, onPick, onSelect, excludeIds }: Exercise
           ) : null}
 
           {isLoading ? (
-            <div className="flex items-center justify-center gap-2 py-8 text-muted">
+            <div className="flex items-center justify-center gap-2 py-8 text-ink-muted">
               <Spinner size={18} />
-              <span className="font-mono text-hud uppercase">Загружаю справочник</span>
+              <span className="mark">Загружаю справочник</span>
             </div>
           ) : isError ? (
             <div className="flex flex-col items-start gap-3 py-6">
-              <p className="text-sm text-danger">{errorMessage}</p>
+              <p className="text-sm text-stamp-lit">{errorMessage}</p>
               <Button variant="outline" size="sm" onClick={refetch}>
                 Повторить
               </Button>
@@ -275,15 +271,16 @@ function PickerContent({ open, onClose, onPick, onSelect, excludeIds }: Exercise
             </ul>
           )}
 
+          {/* Число внутри фразы остаётся прозой: моношрифт здесь был бы костюмом. */}
           {rest > 0 ? (
-            <p className="font-mono text-hud uppercase text-muted">
+            <p className="text-xs leading-relaxed text-ink-muted">
               ещё {rest} {pluralRu(rest, 'упражнение', 'упражнения', 'упражнений')} — уточни запрос
             </p>
           ) : null}
 
           {cardioPreview.length > 0 ? (
-            <section className="flex flex-col gap-1.5 border-t border-line/70 pt-3">
-              <h3 className="font-mono text-hud uppercase text-muted">Кардио</h3>
+            <section className="flex flex-col gap-1.5 border-t border-edge/70 pt-3">
+              <h3 className="mark text-ink-muted">Кардио</h3>
               <ul className="flex flex-col gap-1.5">
                 {cardioPreview.map((exercise) => (
                   <li key={exercise.id}>
@@ -295,7 +292,7 @@ function PickerContent({ open, onClose, onPick, onSelect, excludeIds }: Exercise
                 <button
                   type="button"
                   onClick={() => selectKind('cardio')}
-                  className="tap self-start font-mono text-hud uppercase text-accent"
+                  className="tap self-start py-2 text-xs text-ink underline-offset-4 hover:underline"
                 >
                   ещё {cardioRest}{' '}
                   {pluralRu(cardioRest, 'упражнение', 'упражнения', 'упражнений')}

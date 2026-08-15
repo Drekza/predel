@@ -17,6 +17,9 @@ type ExerciseCardProps = {
   className?: string
 }
 
+/** Метка на строке: тот же узкий капс, что на корпусе, только мельче. */
+const TAG = 'font-stencil text-[0.625rem] font-medium tracking-mark uppercase'
+
 /**
  * Строка упражнения: русское название крупно, снаряд и целевые мышцы мелко,
  * справа метки «своё» и «кардио». Высота строки — тач-цель не меньше 44 px.
@@ -36,9 +39,9 @@ export function ExerciseCard({
   const body = (
     <>
       <span className="flex min-w-0 flex-1 flex-col items-start gap-0.5 text-left">
-        <span className="w-full truncate text-sm text-text">{exercise.name_ru}</span>
+        <span className="w-full truncate text-sm text-ink">{exercise.name_ru}</span>
         {meta ? (
-          <span className="w-full truncate font-mono text-[0.6875rem] leading-tight text-muted">
+          <span className="w-full truncate font-stencil text-[0.6875rem] leading-tight text-ink-muted">
             {meta}
           </span>
         ) : null}
@@ -46,12 +49,17 @@ export function ExerciseCard({
 
       <span className="flex shrink-0 items-center gap-1.5">
         {exercise.is_custom ? (
-          <span className="rounded-xs border border-accent-2/50 px-1.5 py-0.5 font-mono text-[0.625rem] uppercase tracking-label text-accent-2">
+          <span className={cn(TAG, 'rounded-xs border border-edge px-1.5 py-0.5 text-ink-muted')}>
             своё
           </span>
         ) : null}
         {isCardio ? (
-          <span className="flex items-center gap-1 rounded-xs border border-ok/50 px-1.5 py-0.5 font-mono text-[0.625rem] uppercase tracking-label text-ok">
+          <span
+            className={cn(
+              TAG,
+              'flex items-center gap-1 rounded-xs border border-ok/50 px-1.5 py-0.5 text-ok',
+            )}
+          >
             <Timer size={12} aria-hidden />
             кардио
           </span>
@@ -62,9 +70,9 @@ export function ExerciseCard({
   )
 
   const shell = cn(
-    'flex w-full items-center gap-3 rounded-md border px-3 py-2.5',
+    'flex w-full items-center gap-3 rounded-sm border px-3 py-2.5',
     'min-h-[3.25rem] text-left',
-    selected ? 'border-accent/60 bg-surface-2' : 'border-line bg-surface',
+    selected ? 'border-ink-muted/45 bg-panel-2' : 'border-edge bg-panel',
     className,
   )
 
@@ -80,8 +88,8 @@ export function ExerciseCard({
       onClick={() => onSelect(exercise)}
       className={cn(
         shell,
-        'tap transition-colors duration-100 ease-hud',
-        'hover:border-accent/50 hover:bg-surface-2 active:bg-surface-2/70',
+        'tap transition-colors duration-100 ease-station',
+        'hover:border-ink-muted/40 hover:bg-panel-2 active:bg-panel-2/70',
         'disabled:cursor-not-allowed disabled:opacity-50',
       )}
     >

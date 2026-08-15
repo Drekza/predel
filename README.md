@@ -20,7 +20,7 @@
 | Роутинг | react-router v7 (`createBrowserRouter`) |
 | Данные | TanStack Query v5, `@supabase/supabase-js` v2 |
 | Тесты | vitest + jsdom + @testing-library/react |
-| Шрифты | Inter Variable, JetBrains Mono Variable (все числа — моно) |
+| Шрифты | Oswald (метки), Martian Mono (все числа), Inter (проза) — все Variable |
 
 Бэкенд — Supabase: Postgres с RLS, magic-link авторизация, две RPC-функции
 жизненного цикла тренировки. Своего сервера у приложения нет.

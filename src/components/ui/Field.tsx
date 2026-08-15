@@ -15,14 +15,14 @@ export function Field({ label, hint, error, children }: FieldProps) {
   const id = useId()
   return (
     <div role="group" aria-labelledby={`${id}-label`} className="flex flex-col gap-1.5">
-      <span id={`${id}-label`} className="font-mono text-hud uppercase text-muted">
+      <span id={`${id}-label`} className="mark text-ink-muted">
         {label}
       </span>
       {children}
       {error ? (
-        <span className="text-xs text-danger">{error}</span>
+        <span className="text-xs text-stamp-lit">{error}</span>
       ) : hint ? (
-        <span className="text-xs text-muted">{hint}</span>
+        <span className="text-xs text-ink-muted">{hint}</span>
       ) : null}
     </div>
   )

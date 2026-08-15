@@ -13,7 +13,8 @@ type RestTimerProps = {
 
 /**
  * Время с прошлого подхода. Без звуков, без модалок, без обратного отсчёта:
- * это показание прибора, а не будильник.
+ * это показание прибора, а не будильник. Живёт на шильде сессии, а не плавает
+ * над экраном: плавающая плашка ложилась поверх степперов, в которые бьёт палец.
  *
  * Счёт идёт от метки времени, а не от накопленного тика — приложение сворачивают
  * посреди отдыха, и таймер, считающий свои собственные секунды, соврал бы.
@@ -54,22 +55,19 @@ export function RestTimer({ since }: RestTimerProps) {
   const cold = seconds >= 180
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-[calc(env(safe-area-inset-bottom)+4.25rem)] z-20 flex justify-center px-4">
-      <button
-        type="button"
-        onClick={() => setResetAt(Date.now())}
-        aria-label={`Отдых ${formatClock(seconds)}. Сбросить`}
-        className={cn(
-          'tap pointer-events-auto inline-flex items-center gap-2 rounded-md border px-3 py-1.5',
-          'bg-surface/95 shadow-hud backdrop-blur-md',
-          'transition-colors duration-100 ease-hud',
-          cold ? 'border-line text-muted' : 'border-accent/40 text-text',
-        )}
-      >
-        <Timer size={14} strokeWidth={2} aria-hidden className={cold ? '' : 'text-accent'} />
-        <span className="font-mono text-hud uppercase text-muted">отдых</span>
-        <span className="font-mono text-sm font-semibold tabular-nums">{formatClock(seconds)}</span>
-      </button>
-    </div>
+    <button
+      type="button"
+      onClick={() => setResetAt(Date.now())}
+      aria-label={`Отдых ${formatClock(seconds)}. Сбросить`}
+      className={cn(
+        'tap inline-flex shrink-0 items-center gap-1.5 rounded-xs px-1.5 py-1',
+        'transition-colors duration-100 ease-station hover:bg-panel',
+        cold ? 'text-ink-muted' : 'text-ink',
+      )}
+    >
+      <Timer size={13} strokeWidth={2} aria-hidden className={cold ? '' : 'text-stamp'} />
+      <span className="mark text-ink-muted">отдых</span>
+      <span className="num text-sm font-semibold">{formatClock(seconds)}</span>
+    </button>
   )
 }

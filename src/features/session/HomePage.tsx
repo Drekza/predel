@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 import { ChevronRight, Dumbbell, Play } from 'lucide-react'
 
@@ -31,6 +31,26 @@ export function HomePage() {
 
   const program = programQuery.data ?? null
   const session = activeSession.data ?? null
+
+  /**
+   * Пластина достаётся ровно одному дню — тому, что не выполнялся дольше всех
+   * (никогда не выполнявшийся идёт первым). Это подсказка глазу, а не
+   * предписание: стартовать можно любой день, программа остаётся источником
+   * истины. Четыре светлые полосы подряд обесценили бы саму пластину.
+   */
+  const suggestedDayId = useMemo(() => {
+    const days = program?.days ?? []
+    if (days.length === 0) return null
+    const ranked = [...days].sort((a, b) => {
+      if (a.lastSessionAt === null && b.lastSessionAt === null) {
+        return a.day.order_index - b.day.order_index
+      }
+      if (a.lastSessionAt === null) return -1
+      if (b.lastSessionAt === null) return 1
+      return a.lastSessionAt.localeCompare(b.lastSessionAt)
+    })
+    return ranked[0]?.day.id ?? null
+  }, [program])
   const activeDayName =
     session && program
       ? (program.days.find((card) => card.day.id === session.program_day_id)?.day.name ?? null)
@@ -85,16 +105,17 @@ export function HomePage() {
   return (
     <div className="flex flex-col gap-4">
       {session ? (
-        <section className="hud-brackets flex flex-col gap-3 rounded-lg border border-accent/50 bg-surface px-4 py-4 shadow-hud">
+        <section className="bezel flex flex-col gap-3 rounded-lg bg-panel-2 px-4 py-4">
           <div className="flex items-center gap-2">
-            <span className="size-1.5 animate-pulse rounded-full bg-accent" aria-hidden />
-            <span className="font-mono text-hud uppercase text-accent">тренировка идёт</span>
+            {/* Лампа станции: горит, пока идёт поверка. */}
+            <span className="size-1.5 animate-pulse bg-ok" aria-hidden />
+            <span className="mark text-ink">тренировка идёт</span>
           </div>
-          <p className="text-lg leading-tight font-semibold text-text">
+          <p className="text-lg leading-tight font-semibold text-ink">
             {activeDayName ?? 'Свободная тренировка'}
           </p>
-          <p className="font-mono text-hud text-muted">
-            начата {formatDaysAgo(session.started_at)}
+          <p className="mark text-ink-muted">
+            начата <span className="text-ink">{formatDaysAgo(session.started_at)}</span>
           </p>
 
           <div className="flex flex-col gap-2 pt-1">
@@ -118,12 +139,10 @@ export function HomePage() {
       {program ? (
         <section className="flex flex-col gap-2.5">
           <header className="flex items-baseline justify-between gap-3">
-            <h2 className="truncate font-mono text-hud uppercase text-muted">
-              {program.program.name}
-            </h2>
+            <h2 className="mark truncate text-ink-muted">{program.program.name}</h2>
             <Link
               to={`/programs/${program.program.id}`}
-              className="shrink-0 font-mono text-hud uppercase text-muted transition-colors duration-100 hover:text-accent"
+              className="mark shrink-0 text-ink-muted transition-colors duration-100 ease-station hover:text-ink"
             >
               изменить
             </Link>
@@ -147,7 +166,7 @@ export function HomePage() {
               <DayCard
                 key={card.day.id}
                 card={card}
-                muted={Boolean(session)}
+                muted={Boolean(session) || card.day.id !== suggestedDayId}
                 loading={startingDayId === card.day.id && startSession.isPending}
                 confirming={confirmDayId === card.day.id}
                 activeDayName={activeDayName}
@@ -169,7 +188,8 @@ export function HomePage() {
   )
 }
 
-function DayCard({
+/** Экспортируется ещё и для витрины дизайн-системы (`src/dev/Showroom.tsx`). */
+export function DayCard({
   card,
   muted,
   loading,
@@ -190,50 +210,61 @@ function DayCard({
   const { day, exerciseCount, strengthSetCount, lastSessionAt } = card
 
   if (confirming) {
+    // Брошенная сессия не возвращается — рамка киноварью предупреждает об этом.
     return (
-      <Card>
-        <CardBody className="flex flex-col gap-2">
-          <p className="text-sm text-text">
-            Идёт тренировка «{activeDayName ?? 'Свободная тренировка'}». Начать «{day.name}»
-            значит бросить её без итогов.
-          </p>
-          <div className="flex gap-2">
-            <Button variant="ghost" size="sm" fullWidth onClick={onCancel}>
-              Отмена
-            </Button>
-            <Button variant="danger" size="sm" fullWidth loading={loading} onClick={onStart}>
-              Бросить и начать
-            </Button>
-          </div>
-        </CardBody>
-      </Card>
+      <div className="flex flex-col gap-2 rounded-lg border border-stamp/60 bg-panel-2 px-4 py-3.5">
+        <p className="text-sm leading-snug text-ink">
+          Идёт тренировка «{activeDayName ?? 'Свободная тренировка'}». Начать «{day.name}»
+          значит бросить её без итогов.
+        </p>
+        <div className="flex gap-2">
+          <Button variant="ghost" size="sm" fullWidth onClick={onCancel}>
+            Отмена
+          </Button>
+          <Button variant="danger" size="sm" fullWidth loading={loading} onClick={onStart}>
+            Бросить и начать
+          </Button>
+        </div>
+      </div>
     )
   }
 
   return (
     <Card>
-      <CardBody className="flex items-center gap-3">
-        <div className="min-w-0 flex-1">
-          <h3 className="truncate text-[0.9375rem] leading-tight font-semibold text-text">
+      <CardBody className="flex flex-col gap-3">
+        <div className="min-w-0">
+          <h3 className="truncate text-[0.9375rem] leading-tight font-semibold text-ink">
             {day.name}
           </h3>
-          <p className="mt-1 font-mono text-hud tracking-normal text-muted">
-            {exerciseCount}{' '}
+          <p className="mark mt-1.5 text-ink-muted">
+            <span className="num">{exerciseCount}</span>{' '}
             {pluralRu(exerciseCount, 'упражнение', 'упражнения', 'упражнений')}
-            {strengthSetCount > 0 ? ` · ${formatSetsWord(strengthSetCount)}` : ''}
+            {strengthSetCount > 0 ? (
+              <>
+                {' · '}
+                {formatSetsWord(strengthSetCount)}
+              </>
+            ) : null}
           </p>
-          <p className="mt-0.5 font-mono text-hud tracking-normal text-muted/70">
-            {lastSessionAt ? `последний раз ${formatDaysAgo(lastSessionAt)}` : 'ещё не выполнялся'}
+          <p className="mark mt-1 text-ink-muted/70">
+            {lastSessionAt ? (
+              <>
+                последний раз {formatDaysAgo(lastSessionAt)}
+              </>
+            ) : (
+              'ещё не выполнялся'
+            )}
           </p>
         </div>
 
+        {/* Пуск дня — единственное действие карточки: пластина во всю ширину. */}
         <Button
           variant={muted ? 'outline' : 'primary'}
-          size="md"
+          size="lg"
+          fullWidth
           loading={loading}
           disabled={exerciseCount === 0}
           onClick={onStart}
-          className="shrink-0"
         >
           Начать
           <ChevronRight size={15} aria-hidden />

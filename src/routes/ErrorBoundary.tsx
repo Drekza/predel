@@ -33,16 +33,16 @@ export function ErrorBoundary() {
   const details = technicalDetails(error)
 
   return (
-    <main className="hud-grid flex min-h-dvh items-center justify-center bg-bg px-4 py-10 text-text">
+    <main className="flex min-h-dvh items-center justify-center bg-body px-4 py-10 text-ink">
       <Card className="w-full max-w-[26rem]">
         <CardHeader>
-          <span className="flex items-center gap-2 text-danger">
+          <span className="flex items-center gap-2 text-stamp-lit">
             <TriangleAlert size={14} aria-hidden />
             сбой экрана
           </span>
         </CardHeader>
         <CardBody className="flex flex-col gap-4">
-          <p className="text-sm text-muted">
+          <p className="text-sm text-ink-muted">
             {chunk
               ? 'Приложение обновилось, пока страница была открыта. Перезагрузи её — данные тренировки сохранены.'
               : 'Что-то пошло не так при отрисовке экрана. Записанные подходы никуда не делись: они лежат в очереди и уйдут на сервер.'}
@@ -60,7 +60,7 @@ export function ErrorBoundary() {
           </div>
 
           {env.isDev && details ? (
-            <pre className="hud-well overflow-x-auto rounded-md border border-line px-3 py-2.5 font-mono text-xs leading-relaxed text-muted">
+            <pre className="recess num overflow-x-auto rounded-sm border border-edge px-3 py-2.5 text-xs leading-relaxed text-ink-muted">
               {details}
             </pre>
           ) : null}

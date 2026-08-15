@@ -2,7 +2,8 @@ import { useEffect, useMemo, useState } from 'react'
 import { Navigate, useNavigate, useParams } from 'react-router'
 import { AlertTriangle, CloudOff, Flag, RotateCw, Trash2 } from 'lucide-react'
 
-import { formatClock, formatDurationHuman, formatVolume, pluralRu } from '@/lib/format'
+import { cn } from '@/lib/cn'
+import { formatDurationHuman, formatVolume, pluralRu } from '@/lib/format'
 import { useOfflineQueue } from '@/lib/offline/queue'
 import type { QueueOpKind, SetPatch } from '@/lib/offline/types'
 import type { PendingWorkoutSet, SessionExerciseView, SetDraftFilled } from '@/types/domain'
@@ -23,6 +24,9 @@ import { computeProgress, durationMs, lastSetAt } from './prefill'
 
 /** Часы сессии обновляем раз в 10 секунд: минутной точности здесь достаточно. */
 const CLOCK_TICK_MS = 10_000
+
+/** Больше тридцати гнёзд лента не вмещает — дальше показываем полосу. */
+const TALLY_MAX_CELLS = 30
 
 /** Подписи операций очереди для баннера неотправленного. */
 const QUEUE_OP_LABELS: Record<QueueOpKind, string> = {
@@ -174,60 +178,53 @@ export function SessionPage() {
 
   return (
     <div className="flex flex-col gap-3 pb-14">
-      {/* Шапка липнет под шапкой приложения: прогресс виден всю тренировку. */}
-      <header className="sticky top-14 z-20 -mx-4 border-b border-line bg-bg/90 px-4 py-2.5 backdrop-blur-md">
-        <div className="flex items-baseline justify-between gap-3">
-          <h1 className="truncate font-mono text-hud uppercase text-muted">
-            {board.day?.name ?? 'Свободная тренировка'}
-          </h1>
-          <span className="shrink-0 font-mono text-hud text-muted tabular-nums">
+      {/* Шильда сессии липнет под шапкой: лента поверки видна всю тренировку. */}
+      {/* Кромка обязательна: корпус непрозрачный, и без неё пластина уезжающей
+          карточки срезается встык с показаниями шильды. */}
+      <header className="sticky top-16 z-20 -mx-4 border-b border-edge bg-body px-4 pt-1 pb-3 shadow-[0_10px_18px_-14px_rgb(0_0_0/0.95)]">
+        {/* Название дня занимает строку целиком: это первое, что читают, и
+            делить её с показаниями значит обрезать её на узком телефоне. */}
+        <h2 className="truncate font-stencil text-2xl leading-tight font-medium tracking-mark uppercase text-ink">
+          {board.day?.name ?? 'Свободная тренировка'}
+        </h2>
+
+        <div className="mt-2.5 flex items-end gap-3">
+          <SetTally done={progress.done} planned={progress.planned} ratio={progress.ratio} />
+          <span className="num shrink-0 text-tally leading-none text-ink">
+            {progress.done}
+            <span className="text-ink-muted">/{progress.planned}</span>
+          </span>
+        </div>
+
+        <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+          {/* Показания времени идут вместе с остальными показаниями, а не в
+              заголовке: отдых между подходами читают чаще, чем тоннаж.
+              У длительности сессии подписи нет — рядом с «отдых» она
+              однозначна, а лишнее слово гонит ряд на вторую строку. */}
+          <RestTimer since={restSince} />
+          <span className="num text-xs text-ink-muted">
             {formatDurationHuman(elapsed === null ? null : elapsed / 1000)}
           </span>
-        </div>
-
-        <div className="mt-2 flex items-center gap-3">
-          <div
-            role="progressbar"
-            aria-label="Прогресс тренировки"
-            aria-valuemin={0}
-            aria-valuemax={progress.planned}
-            aria-valuenow={progress.done}
-            className="h-1 flex-1 overflow-hidden rounded-xs bg-surface-2"
-          >
-            <div
-              className="h-full bg-accent transition-[width] duration-200 ease-hud"
-              style={{ width: `${Math.round(progress.ratio * 100)}%` }}
-            />
-          </div>
-          <span className="font-mono text-sm font-semibold text-text tabular-nums">
-            {progress.done}
-            <span className="text-muted">/{progress.planned}</span>
+          <span className="mark text-ink-muted">
+            тоннаж <span className="num text-ink">{formatVolume(board.totals.volumeKg)}</span>
           </span>
-        </div>
-
-        <div className="mt-1.5 flex items-center justify-between gap-3">
-          <span className="font-mono text-hud text-muted tabular-nums">
-            тоннаж {formatVolume(board.totals.volumeKg)}
-          </span>
-          {board.totals.cardioSec > 0 ? (
-            <span className="font-mono text-hud text-muted tabular-nums">
-              кардио {formatClock(board.totals.cardioSec)}
-            </span>
-          ) : null}
+          {/* Кардио в липкой шапке не стоит: между подходами решение принимают
+              по отдыху, времени и тоннажу, а итог по кардио ждёт на сводке
+              отдельной пластиной. Строка шапки дороже этого показания. */}
           {board.pending > 0 ? (
-            <span className="flex items-center gap-1.5 font-mono text-hud text-muted">
+            <span className="mark flex items-center gap-1.5 text-ink-muted">
               <CloudOff size={12} aria-hidden />
-              {board.pending} в очереди
+              <span className="num text-ink">{board.pending}</span> в очереди
             </span>
           ) : null}
         </div>
       </header>
 
       {queue.failed.length > 0 ? (
-        <div className="flex flex-col gap-2 rounded-md border border-warn/50 bg-surface-2 px-3 py-2.5">
+        <div className="bezel flex flex-col gap-2 rounded-sm bg-panel px-3 py-2.5">
           <div className="flex items-center gap-2.5">
             <AlertTriangle size={16} aria-hidden className="shrink-0 text-warn" />
-            <p className="flex-1 text-sm text-text">
+            <p className="flex-1 text-sm leading-snug text-ink">
               {queue.failed.length}{' '}
               {pluralRu(queue.failed.length, 'запись', 'записи', 'записей')} не ушли на сервер.
               Пока они здесь, остальные тоже ждут.
@@ -241,7 +238,7 @@ export function SessionPage() {
           <ul className="flex flex-col gap-1">
             {queue.failed.map((op) => (
               <li key={op.id} className="flex items-center gap-2">
-                <span className="min-w-0 flex-1 truncate text-xs text-muted">
+                <span className="min-w-0 flex-1 truncate text-xs text-ink-muted">
                   {QUEUE_OP_LABELS[op.kind]}
                   {op.lastError ? ` · ${op.lastError}` : ''}
                 </span>
@@ -281,14 +278,14 @@ export function SessionPage() {
       {/* Завершение — инлайн, без модалок: предупреждение раскрывается на месте. */}
       <div className="flex flex-col gap-2.5 pt-1">
         {askFinish && progress.untouched.length > 0 ? (
-          <div className="flex flex-col gap-2 rounded-md border border-warn/50 bg-surface-2 px-3 py-3">
-            <p className="text-sm text-text">
+          <div className="bezel flex flex-col gap-2 rounded-sm bg-panel px-3 py-3">
+            <p className="text-sm text-ink">
               Без единого подхода {progress.untouched.length}{' '}
               {pluralRu(progress.untouched.length, 'упражнение', 'упражнения', 'упражнений')}:
             </p>
             <ul className="flex flex-col gap-0.5">
               {progress.untouched.map((view) => (
-                <li key={view.exercise.id} className="truncate text-sm text-muted">
+                <li key={view.exercise.id} className="truncate text-sm text-ink-muted">
                   · {view.exercise.name_ru}
                 </li>
               ))}
@@ -303,20 +300,15 @@ export function SessionPage() {
             </div>
           </div>
         ) : (
-          <Button
-            size="lg"
-            fullWidth
-            loading={finishSession.isPending}
-            onClick={handleFinishClick}
-          >
+          <Button size="lg" fullWidth loading={finishSession.isPending} onClick={handleFinishClick}>
             <Flag size={17} aria-hidden />
             Завершить тренировку
           </Button>
         )}
 
         {askAbandon ? (
-          <div className="flex items-center gap-2 rounded-md border border-danger/50 bg-surface-2 px-3 py-2">
-            <span className="flex-1 text-sm text-text">Прервать без записи итогов?</span>
+          <div className="bezel flex items-center gap-2 rounded-sm bg-panel px-3 py-2">
+            <span className="flex-1 text-sm text-ink">Прервать без записи итогов?</span>
             <Button size="sm" variant="ghost" onClick={() => setAskAbandon(false)}>
               Нет
             </Button>
@@ -330,8 +322,41 @@ export function SessionPage() {
           </Button>
         )}
       </div>
+    </div>
+  )
+}
 
-      <RestTimer since={restSince} />
+/**
+ * Лента поверки: гнездо на каждый плановый подход, поставленное клеймо —
+ * киноварь. Сколько сделано и сколько осталось, читается без чтения цифр.
+ */
+export function SetTally({ done, planned, ratio }: { done: number; planned: number; ratio: number }) {
+  const shared = 'h-3.5 flex-1 min-w-0'
+  return (
+    <div
+      role="progressbar"
+      aria-label="Прогресс тренировки"
+      aria-valuemin={0}
+      aria-valuemax={planned}
+      aria-valuenow={done}
+      className="recess flex flex-1 gap-px rounded-xs p-px"
+    >
+      {planned > 0 && planned <= TALLY_MAX_CELLS ? (
+        Array.from({ length: planned }, (_, index) => (
+          <span
+            key={index}
+            aria-hidden
+            className={cn(shared, index < done ? 'bg-stamp' : 'bg-panel-2')}
+          />
+        ))
+      ) : (
+        <span aria-hidden className="h-3.5 w-full bg-panel-2">
+          <span
+            className="block h-full bg-stamp transition-[width] duration-200 ease-station"
+            style={{ width: `${Math.round(ratio * 100)}%` }}
+          />
+        </span>
+      )}
     </div>
   )
 }
@@ -339,7 +364,7 @@ export function SessionPage() {
 function SessionSkeleton() {
   return (
     <div className="flex flex-col gap-3">
-      <Skeleton className="h-14 w-full" />
+      <Skeleton className="h-16 w-full" />
       <Skeleton className="h-56 w-full" />
       <Skeleton className="h-56 w-full" />
     </div>

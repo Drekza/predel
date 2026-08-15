@@ -9,33 +9,30 @@ type ButtonProps = {
   fullWidth?: boolean
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
+/**
+ * Главное действие — это пластина: светлый сток, чёрная печать. В плохом свете
+ * зала она читается раньше всего остального и не требует искать акцент.
+ */
 const VARIANTS = {
-  primary: cn(
-    'bg-accent text-bg shadow-hud',
-    'hover:bg-accent/90 active:bg-accent/80',
-    'disabled:bg-accent/25 disabled:text-bg/60',
-  ),
-  danger: cn(
-    'bg-danger text-bg shadow-hud',
-    'hover:bg-danger/90 active:bg-danger/80',
-    'disabled:bg-danger/25 disabled:text-bg/60',
-  ),
-  outline: cn(
-    'border border-line bg-surface text-text',
-    'hover:border-accent/60 hover:text-accent active:bg-surface-2',
-    'disabled:border-line/60 disabled:text-muted',
-  ),
-  ghost: cn(
-    'bg-transparent text-muted',
-    'hover:bg-surface-2 hover:text-text active:bg-surface-2/70',
-    'disabled:text-muted/50',
-  ),
+  primary: cn('plate', 'hover:bg-plate-2 active:translate-y-px'),
+  danger: cn('bg-stamp text-stamp-ink shadow-lift', 'hover:bg-stamp/90 active:translate-y-px'),
+  outline: cn('bezel bg-panel text-ink', 'hover:bg-panel-2 active:translate-y-px'),
+  ghost: cn('bg-transparent text-ink-muted', 'hover:bg-panel hover:text-ink active:translate-y-px'),
 } as const
 
+/**
+ * Недоступная кнопка — погасшая клавиша, одна на все варианты: выцветшая
+ * пластина читается хуже, чем тёмное гнездо, и путается с активной.
+ */
+const DISABLED = cn(
+  'disabled:cursor-not-allowed disabled:active:translate-y-0',
+  'disabled:bg-panel-2 disabled:text-ink-muted/45 disabled:shadow-none',
+)
+
 const SIZES = {
-  sm: 'h-11 px-3 text-[0.6875rem] tracking-label gap-1.5',
-  md: 'h-12 px-4 text-xs tracking-label gap-2',
-  lg: 'h-14 px-5 text-sm tracking-hud gap-2.5',
+  sm: 'h-11 px-3 text-[0.8125rem] gap-1.5',
+  md: 'h-12 px-4 text-sm gap-2',
+  lg: 'h-14 px-5 text-base gap-2.5',
 } as const
 
 export function Button({
@@ -55,12 +52,12 @@ export function Button({
       disabled={disabled || loading}
       aria-busy={loading || undefined}
       className={cn(
-        'tap relative inline-flex items-center justify-center rounded-md',
-        'font-mono font-semibold uppercase',
-        'transition-[background-color,border-color,color,transform] duration-100 ease-hud',
-        'active:scale-[0.985] disabled:cursor-not-allowed disabled:active:scale-100',
+        'tap relative inline-flex items-center justify-center rounded-sm',
+        'font-stencil font-medium tracking-mark uppercase',
+        'transition-[background-color,color,box-shadow,transform] duration-100 ease-station',
         SIZES[size],
         VARIANTS[variant],
+        DISABLED,
         fullWidth && 'w-full',
         className,
       )}

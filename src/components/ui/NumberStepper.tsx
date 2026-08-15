@@ -88,7 +88,7 @@ export function NumberStepper({
       className={cn('flex items-stretch', size === 'lg' ? 'gap-2' : 'gap-1.5')}
     >
       <StepperButton onStep={() => applyStep(-1)} label="Уменьшить" size={size} disabled={atMin}>
-        <Minus size={size === 'lg' ? 22 : 18} strokeWidth={2.5} aria-hidden />
+        <Minus size={size === 'lg' ? 24 : 19} strokeWidth={2.75} aria-hidden />
       </StepperButton>
 
       {editing ? (
@@ -96,6 +96,10 @@ export function NumberStepper({
           ref={inputRef}
           type="text"
           inputMode="decimal"
+          // size=1 вместо браузерных 20 знаков: иначе собственная ширина поля
+          // (20 моноширинных знаков кегля readout) задирает min-content всей
+          // строки, и в контейнере с интринсик-шириной она вылезает за карточку.
+          size={1}
           autoFocus
           aria-label={ariaLabel ?? 'Значение'}
           value={draft}
@@ -111,9 +115,9 @@ export function NumberStepper({
             }
           }}
           className={cn(
-            'hud-well min-w-0 flex-1 rounded-md border border-accent/70 text-center shadow-glow outline-none',
-            'font-mono tabular-nums text-text',
-            size === 'lg' ? 'h-14 text-readout' : 'h-11 text-xl font-semibold',
+            'plate num min-w-0 flex-1 rounded-sm text-center',
+            'outline-2 outline-offset-2 outline-stamp',
+            size === 'lg' ? 'h-14 text-readout' : 'h-11 text-[1.375rem] font-semibold',
           )}
         />
       ) : (
@@ -122,29 +126,32 @@ export function NumberStepper({
           onClick={openEditor}
           aria-label={ariaLabel ? `${ariaLabel}: ${display}` : `Значение: ${display}`}
           className={cn(
-            'hud-well hud-scale tap min-w-0 flex-1 rounded-md border border-line',
-            'flex items-baseline justify-center gap-1.5',
-            'transition-colors duration-100 ease-hud hover:border-accent/40',
-            size === 'lg' ? 'h-14 px-2' : 'h-11 px-2',
+            // Пластина со шкалой: показание стоит на гравировке, как на приборе.
+            'plate plate-etch tap grid min-w-0 flex-1 place-items-center rounded-sm px-2',
+            'transition-[background-color] duration-100 ease-station hover:bg-plate-2',
+            size === 'lg' ? 'h-14 pb-2' : 'h-11 pb-1.5',
           )}
         >
-          <span
-            className={cn(
-              'font-mono tabular-nums',
-              value === null ? 'text-muted' : 'text-text',
-              size === 'lg' ? 'text-readout' : 'text-xl font-semibold',
-            )}
-          >
-            {display}
+          <span className="flex items-baseline gap-1.5">
+            <span
+              className={cn(
+                'num leading-none',
+                value === null ? 'text-plate-muted' : 'text-plate-ink',
+                size === 'lg' ? 'text-readout' : 'text-[1.375rem] font-semibold -tracking-[0.03em]',
+              )}
+            >
+              {display}
+            </span>
+            {/* Единица — «кг», строчными: это обозначение из ГОСТ, а не метка. */}
+            {unit ? (
+              <span className="font-stencil text-sm font-medium text-plate-muted">{unit}</span>
+            ) : null}
           </span>
-          {unit ? (
-            <span className="font-mono text-hud uppercase text-muted">{unit}</span>
-          ) : null}
         </button>
       )}
 
       <StepperButton onStep={() => applyStep(1)} label="Увеличить" size={size} disabled={atMax}>
-        <Plus size={size === 'lg' ? 22 : 18} strokeWidth={2.5} aria-hidden />
+        <Plus size={size === 'lg' ? 24 : 19} strokeWidth={2.75} aria-hidden />
       </StepperButton>
     </div>
   )

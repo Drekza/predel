@@ -59,8 +59,8 @@ export function OnboardingPage() {
 
   if (loading) {
     return (
-      <main className="flex min-h-dvh items-center justify-center bg-bg" role="status">
-        <Spinner size={22} className="text-accent" />
+      <main className="flex min-h-dvh items-center justify-center bg-body" role="status">
+        <Spinner size={22} className="text-ink" />
       </main>
     )
   }
@@ -69,15 +69,23 @@ export function OnboardingPage() {
   if (profile?.onboarded_at) return <Navigate to="/" replace />
 
   return (
-    <main className="hud-grid flex min-h-dvh flex-col justify-center bg-bg px-4 py-10 text-text">
+    <main className="flex min-h-dvh flex-col justify-center bg-body px-4 py-10 text-ink">
       <div className="mx-auto flex w-full max-w-[26rem] flex-col gap-6">
         <header className="flex flex-col gap-3">
-          <span className="flex items-center gap-2 font-mono text-hud uppercase text-accent">
-            <ScanLine size={14} aria-hidden />
-            калибровка
-          </span>
-          <h1 className="font-mono text-2xl font-semibold tracking-hud uppercase">Знакомимся</h1>
-          <p className="text-sm text-muted">
+          <div className="flex items-center gap-3">
+            <span className="mark flex items-center gap-2 text-ink-muted">
+              <ScanLine size={14} aria-hidden />
+              калибровка
+            </span>
+            {/* Марка станции: экран живёт вне корпуса, шильда сюда не доезжает. */}
+            <span aria-hidden className="mark ml-auto shrink-0 text-ink-muted/70">
+              ПРЕДЕЛ
+            </span>
+          </div>
+          <h1 className="font-stencil text-2xl font-semibold tracking-mark uppercase">Знакомимся</h1>
+          {/* Гравированная линейка — подпись станции, та же, что в корпусе. */}
+          <div aria-hidden className="rule-etch h-2 w-full" />
+          <p className="text-sm text-ink-muted">
             Два поля — и можно идти в зал. Всё остальное появится по ходу тренировок.
           </p>
         </header>
@@ -130,7 +138,7 @@ export function OnboardingPage() {
               </Button>
 
               {formError ? (
-                <p role="alert" className="text-sm text-danger">
+                <p role="alert" className="text-sm text-stamp-lit">
                   {formError}
                 </p>
               ) : null}

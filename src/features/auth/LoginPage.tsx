@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { FormEvent } from 'react'
 import { Navigate } from 'react-router'
-import { MailCheck, ScanLine } from 'lucide-react'
+import { MailCheck } from 'lucide-react'
 
 import { Button, Card, CardBody, Field, Input, Spinner } from '@/components/ui'
 import { formatClock } from '@/lib/format'
@@ -64,8 +64,8 @@ export function LoginPage() {
 
   if (loading) {
     return (
-      <main className="flex min-h-dvh items-center justify-center bg-bg" role="status">
-        <Spinner size={22} className="text-accent" />
+      <main className="flex min-h-dvh items-center justify-center bg-body" role="status">
+        <Spinner size={22} className="text-ink" />
       </main>
     )
   }
@@ -73,20 +73,13 @@ export function LoginPage() {
   if (session) return <Navigate to="/" replace />
 
   return (
-    <main className="hud-grid flex min-h-dvh flex-col justify-center bg-bg px-4 py-10 text-text">
+    <main className="flex min-h-dvh flex-col justify-center bg-body px-4 py-10 text-ink">
       <div className="mx-auto flex w-full max-w-[26rem] flex-col gap-6">
         <header className="flex flex-col gap-3">
-          <span className="flex items-center gap-2 font-mono text-hud uppercase text-accent">
-            <ScanLine size={14} aria-hidden />
-            биосканер
-          </span>
-          <h1 className="font-mono text-3xl font-semibold tracking-hud uppercase">ПРЕДЕЛ</h1>
-          <p className="font-mono text-hud uppercase leading-relaxed text-muted">
-            канал защищён
-            <br />
-            ожидание идентификации
-            <span aria-hidden className="ml-1 inline-block h-3 w-2 translate-y-px bg-accent" />
-          </p>
+          <h1 className="font-stencil text-4xl font-semibold tracking-mark uppercase">ПРЕДЕЛ</h1>
+          {/* Гравированная линейка — подпись станции, та же, что в корпусе. */}
+          <div aria-hidden className="rule-etch h-2 w-full" />
+          <p className="text-sm leading-relaxed text-ink-muted">Дневник силовых тренировок</p>
         </header>
 
         <Card>
@@ -122,15 +115,15 @@ export function LoginPage() {
             ) : (
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-1.5">
-                  <span className="flex items-center gap-2 font-mono text-hud uppercase text-ok">
+                  <span className="mark flex items-center gap-2 text-ok">
                     <MailCheck size={14} aria-hidden />
                     ссылка отправлена
                   </span>
-                  <p className="text-sm text-muted">
-                    Письмо ушло на <span className="font-mono break-all text-text">{sentTo}</span>.
+                  <p className="text-sm text-ink-muted">
+                    Письмо ушло на <span className="num break-all text-ink">{sentTo}</span>.
                     Открой ссылку на этом же устройстве — она сразу пустит внутрь.
                   </p>
-                  <p className="text-xs text-muted">Письма нет пару минут — загляни в спам.</p>
+                  <p className="text-xs text-ink-muted">Письма нет пару минут — загляни в спам.</p>
                 </div>
 
                 <div className="flex flex-col gap-2">
@@ -145,9 +138,9 @@ export function LoginPage() {
                     Отправить ещё раз
                   </Button>
                   {secondsLeft > 0 ? (
-                    <p className="text-center font-mono text-hud uppercase text-muted">
+                    <p className="mark text-center text-ink-muted">
                       повтор через{' '}
-                      <span className="tabular-nums text-text">{formatClock(secondsLeft)}</span>
+                      <span className="num text-ink">{formatClock(secondsLeft)}</span>
                     </p>
                   ) : null}
                 </div>
@@ -167,14 +160,14 @@ export function LoginPage() {
             )}
 
             {formError ? (
-              <p role="alert" className="text-sm text-danger">
+              <p role="alert" className="text-sm text-stamp-lit">
                 {formError}
               </p>
             ) : null}
           </CardBody>
         </Card>
 
-        <p className="text-center text-xs text-muted">
+        <p className="text-center text-xs text-ink-muted">
           Вход по ссылке из письма. Никаких паролей — их нечего терять
         </p>
       </div>

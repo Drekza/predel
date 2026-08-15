@@ -80,17 +80,20 @@ export function SessionSummaryPage() {
 
   return (
     <div className="flex flex-col gap-4">
-      <header className="flex flex-col gap-1.5">
-        <span className="flex items-center gap-2 font-mono text-hud uppercase text-ok">
+      <header className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+        <h1 className="font-stencil text-xl leading-tight font-medium tracking-mark uppercase text-ink">
+          {board.day?.name ?? 'Свободная тренировка'}
+        </h1>
+        {/* Клеймо поверки: тренировка закрыта, её итог больше не меняется.
+            Стоит рядом с названием, а не над ним: это отметка, не рубрика. */}
+        <span className="stamped animate-stamp mark inline-flex items-center gap-1.5 rounded-xs px-2 py-1.5">
           <Check size={14} strokeWidth={2.5} aria-hidden />
           тренировка закрыта
         </span>
-        <h1 className="text-xl leading-tight font-semibold text-text">
-          {board.day?.name ?? 'Свободная тренировка'}
-        </h1>
       </header>
 
-      <div className="grid grid-cols-3 gap-2">
+      {/* Итог — одна крупная пластина: три показания, отпечатанные разом. */}
+      <div className="plate plate-etch flex flex-col divide-y divide-plate-etch/70 rounded-lg px-4 pt-2 pb-6">
         <Metric label="время" value={formatDurationMs(totals.durationMs)} />
         <Metric label="подходы" value={String(totals.setCount)} />
         <Metric label="тоннаж" value={formatVolume(totals.volumeKg)} />
@@ -98,46 +101,49 @@ export function SessionSummaryPage() {
 
       {/* Кардио отдельной строкой: в тоннаж и в счёт подходов оно не входит. */}
       {hasCardio ? (
-        <div className="flex items-center justify-between gap-3 rounded-md border border-line/60 bg-surface-2 px-3 py-2.5">
-          <span className="font-mono text-hud uppercase text-muted">кардио</span>
-          <span className="font-mono text-sm text-text tabular-nums">
+        <div className="flex items-center justify-between gap-3 rounded-sm border border-edge/60 bg-panel-2 px-3 py-2.5">
+          <span className="mark text-ink-muted">кардио</span>
+          <span className="num text-sm text-ink">
             {formatCardio(totals.cardioSec, totals.cardioDistanceM)}
           </span>
         </div>
       ) : null}
 
       <section className="flex flex-col gap-2">
-        <h2 className="font-mono text-hud uppercase text-muted">по упражнениям</h2>
+        <h2 className="mark text-ink-muted">по упражнениям</h2>
 
         {breakdown.length === 0 ? (
           <EmptyState title="Ни одного подхода" hint="В этой тренировке ничего не записано." />
         ) : (
           breakdown.map((row) => (
             <Card key={row.exerciseId}>
-              <CardBody className="flex flex-col gap-2">
-                <div className="flex items-baseline justify-between gap-3">
+              <CardBody className="flex flex-col gap-2.5">
+                {/* Название на своей строке: делить её с итогами значит резать
+                    многоточием то, ради чего строку и читают. */}
+                <div className="flex flex-col gap-1">
                   <h3
                     className={cn(
-                      'min-w-0 flex-1 truncate text-[0.9375rem] leading-tight font-semibold',
-                      row.kind === 'cardio' ? 'text-muted' : 'text-text',
+                      'text-[0.9375rem] leading-snug font-semibold',
+                      row.kind === 'cardio' ? 'text-ink-muted' : 'text-ink',
                     )}
                   >
                     {row.name}
                   </h3>
-                  <span className="shrink-0 font-mono text-hud text-muted tabular-nums">
+                  <span className="num text-xs text-ink-muted">
                     {row.kind === 'cardio'
                       ? formatCardio(row.cardioSec, row.cardioDistanceM)
                       : `${formatSetsWord(row.setCount)} · ${formatVolume(row.volumeKg)}`}
                   </span>
                 </div>
 
+                {/* Каждый подход — гнездо с поставленным клеймом номера. */}
                 <ul className="flex flex-wrap gap-1.5">
                   {row.sets.map((set, index) => (
                     <li
                       key={set.client_id}
-                      className="rounded-xs border border-line/70 bg-surface-2 px-2 py-1 font-mono text-[0.6875rem] text-muted tabular-nums"
+                      className="recess num rounded-xs px-2 py-1 text-[0.6875rem] text-ink-muted"
                     >
-                      <span className="text-muted/60">{index + 1}</span>{' '}
+                      <span className="text-stamp">{index + 1}</span>{' '}
                       {set.kind === 'cardio'
                         ? formatCardio(set.duration_sec, set.distance_m)
                         : formatStrengthSet(set.weight_kg, set.reps, set.rir)}
@@ -151,8 +157,8 @@ export function SessionSummaryPage() {
       </section>
 
       {totals.exerciseCount > 0 ? (
-        <p className="font-mono text-hud text-muted">
-          {totals.exerciseCount}{' '}
+        <p className="text-xs text-ink-muted">
+          <span className="num text-ink">{totals.exerciseCount}</span>{' '}
           {pluralRu(totals.exerciseCount, 'упражнение', 'упражнения', 'упражнений')} за тренировку
         </p>
       ) : null}
@@ -164,13 +170,14 @@ export function SessionSummaryPage() {
   )
 }
 
+/** Строка показания на итоговой пластине: метка слева, число справа. */
 function Metric({ label, value }: { label: string; value: string }) {
   return (
-    <div className="hud-well flex flex-col gap-1 rounded-md border border-line px-2.5 py-2.5">
-      <span className="font-mono text-[0.5625rem] tracking-label uppercase text-muted">
-        {label}
+    <div className="flex items-baseline justify-between gap-4 py-3">
+      <span className="mark text-plate-muted">{label}</span>
+      <span className="num text-2xl leading-none font-semibold tracking-tight text-plate-ink">
+        {value}
       </span>
-      <span className="font-mono text-base font-semibold text-text tabular-nums">{value}</span>
     </div>
   )
 }

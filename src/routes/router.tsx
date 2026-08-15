@@ -30,6 +30,19 @@ const ProgramEditorPage = lazy(() =>
   import('@/features/programs').then((m) => ({ default: m.ProgramEditorPage })),
 )
 
+/**
+ * Витрина дизайн-системы. Динамический импорт стоит внутри проверки DEV, иначе
+ * сборщик всё равно вырежет чанк в прод — но выпустит его файлом.
+ */
+const Showroom = import.meta.env.DEV
+  ? lazy(() => import('@/dev/Showroom').then((m) => ({ default: m.Showroom })))
+  : null
+
+/** Дев-маршрут: демо-тренировка в кэше, чтобы открыть настоящий экран сессии. */
+const DemoSessionGate = import.meta.env.DEV
+  ? lazy(() => import('@/dev/DemoSessionGate').then((m) => ({ default: m.DemoSessionGate })))
+  : null
+
 /** Заголовок берётся из handle маршрута — шапка одна на всё приложение. */
 type RouteHandle = { title?: string }
 
@@ -46,7 +59,7 @@ function useRouteTitle(): string | undefined {
 function PageFallback() {
   return (
     <div role="status" className="flex min-h-[50dvh] items-center justify-center">
-      <Spinner size={22} className="text-accent" />
+      <Spinner size={22} className="text-ink-muted" />
     </div>
   )
 }
@@ -72,6 +85,22 @@ export const router = createBrowserRouter([
       // Экраны входа живут вне оболочки: нижняя навигация до входа бессмысленна.
       { path: '/login', element: <LoginPage /> },
       { path: '/onboarding', element: <OnboardingPage /> },
+
+      ...(Showroom && DemoSessionGate
+        ? [
+            { path: '/__demo', element: <DemoSessionGate /> },
+            {
+              element: <AppLayout />,
+              children: [
+                {
+                  path: '__showroom',
+                  element: <Showroom />,
+                  handle: { title: 'Витрина' },
+                },
+              ],
+            },
+          ]
+        : []),
 
       {
         element: (

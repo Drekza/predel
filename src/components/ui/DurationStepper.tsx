@@ -106,6 +106,8 @@ export function DurationStepper({
           ref={inputRef}
           type="text"
           inputMode="numeric"
+          // См. NumberStepper: браузерные 20 знаков ширины раздувают min-content.
+          size={1}
           autoFocus
           aria-label={ariaLabel ?? 'Длительность'}
           placeholder="мм:сс"
@@ -122,9 +124,9 @@ export function DurationStepper({
             }
           }}
           className={cn(
-            'hud-well min-w-0 flex-1 rounded-md border border-accent/70 text-center shadow-glow outline-none',
-            'font-mono tabular-nums text-text placeholder:text-muted/60',
-            size === 'lg' ? 'h-14 text-readout' : 'h-11 text-xl font-semibold',
+            'plate num min-w-0 flex-1 rounded-sm text-center placeholder:text-plate-muted/70',
+            'outline-2 outline-offset-2 outline-stamp',
+            size === 'lg' ? 'h-14 text-readout' : 'h-11 text-[1.375rem] font-semibold',
           )}
         />
       ) : (
@@ -136,16 +138,16 @@ export function DurationStepper({
           }}
           aria-label={ariaLabel ? `${ariaLabel}: ${display}` : `Длительность: ${display}`}
           className={cn(
-            'hud-well hud-scale tap min-w-0 flex-1 rounded-md border border-line',
-            'grid place-items-center transition-colors duration-100 ease-hud hover:border-accent/40',
-            size === 'lg' ? 'h-14 px-2' : 'h-11 px-2',
+            'plate plate-etch tap grid min-w-0 flex-1 place-items-center rounded-sm px-2',
+            'transition-[background-color] duration-100 ease-station hover:bg-plate-2',
+            size === 'lg' ? 'h-14 pb-2' : 'h-11 pb-1.5',
           )}
         >
           <span
             className={cn(
-              'font-mono tabular-nums',
-              valueSec === null ? 'text-muted' : 'text-text',
-              size === 'lg' ? 'text-readout' : 'text-xl font-semibold',
+              'num leading-none',
+              valueSec === null ? 'text-plate-muted' : 'text-plate-ink',
+              size === 'lg' ? 'text-readout' : 'text-[1.375rem] font-semibold -tracking-[0.03em]',
             )}
           >
             {display}
@@ -168,13 +170,14 @@ export function DurationStepper({
 function StepFace({ sign, step }: { sign: string; step: number }) {
   return (
     <span aria-hidden className="flex flex-col items-center gap-0.5">
-      <span className="font-mono text-sm leading-none font-semibold tabular-nums">
+      <span className="num text-sm leading-none font-semibold">
         {sign}
         {step}
       </span>
-      <span className="font-mono text-[0.5rem] leading-none tracking-hud text-muted uppercase">
+      <span className="font-stencil text-[0.5625rem] leading-none tracking-wide-mark text-ink-muted uppercase">
         сек
       </span>
+      {/* цвет наследуется от клавиши — киновари на шаге больше нет */}
     </span>
   )
 }

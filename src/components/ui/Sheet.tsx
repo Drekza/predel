@@ -31,23 +31,23 @@ export function Sheet({ open, onClose, title, children }: SheetProps) {
         aria-label="Закрыть"
         tabIndex={-1}
         onClick={onClose}
-        className="flex-1 bg-bg/70 backdrop-blur-[2px]"
+        className="flex-1 bg-body/75"
       />
       <div
         role="dialog"
         aria-label={title}
-        className="animate-sheet-in rounded-t-xl border-t border-line bg-surface shadow-[0_-18px_40px_-24px_#000]"
+        className="animate-sheet-in border-t border-edge bg-panel shadow-[0_-16px_36px_-22px_rgb(0_0_0/0.9)]"
       >
         <div className="grid place-items-center pt-2 pb-1">
-          <span aria-hidden className="h-1 w-10 rounded-full bg-line" />
+          <span aria-hidden className="h-1 w-10 rounded-xs bg-edge" />
         </div>
-        <div className="flex items-center justify-between gap-3 border-b border-line/70 px-4 pb-2.5">
-          <h2 className="font-mono text-hud uppercase text-accent">{title}</h2>
+        <div className="flex items-center justify-between gap-3 border-b border-edge/70 px-4 pb-2.5">
+          <h2 className="mark text-ink">{title}</h2>
           <button
             type="button"
             onClick={onClose}
             aria-label="Закрыть"
-            className="tap -mr-2 grid h-11 w-11 place-items-center rounded-md text-muted transition-colors duration-100 ease-hud hover:bg-surface-2 hover:text-text"
+            className="tap -mr-2 grid h-11 w-11 place-items-center rounded-sm text-ink-muted transition-colors duration-100 ease-station hover:bg-panel-2 hover:text-ink"
           >
             <X size={20} aria-hidden />
           </button>
