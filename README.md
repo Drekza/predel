@@ -113,12 +113,13 @@ psql "$DATABASE_URL" -f supabase/seed.sql
 7. `supabase/migrations/20260815120600_game_config.sql`
 8. `supabase/migrations/20260815120700_rls_policies.sql`
 9. `supabase/migrations/20260815120800_session_functions.sql`
+10. `supabase/migrations/20260816120000_bodyweight_entries.sql`
 
 Потом сиды, тоже по порядку:
 
-10. `supabase/seed/0001_muscle_stat_map.sql` — 17 строк «мышца → стат» и
+11. `supabase/seed/0001_muscle_stat_map.sql` — 17 строк «мышца → стат» и
     тюнинг-константы в `game_config`
-11. `supabase/seed/0002_exercises.sql` — 692 упражнения
+12. `supabase/seed/0002_exercises.sql` — 692 упражнения
 
 Сам `supabase/seed.sql` в SQL Editor вставлять бесполезно: он состоит из команд
 `\ir`, которые понимает только `psql`.
@@ -159,6 +160,9 @@ npm run seed:build      # читает scripts/data/**, пишет supabase/seed
 ## Что готово в фазе 1
 
 - Вход по ссылке из письма, онбординг (ник + вес тела), профиль, выход.
+- Журнал веса тела с графиком: измерение на дату, периоды 30 дней / 3 месяца /
+  год / всё, изменение за период, удаление записи. Текущий вес профиля выводится
+  из журнала серверным триггером.
 - Справочник из 692 упражнений с поиском, фильтрами по группе мышц и
   оборудованию, плюс свои упражнения.
 - Конструктор программ: дни, упражнения в днях, порядок, цели (подходы,

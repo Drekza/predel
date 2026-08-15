@@ -258,6 +258,33 @@ function toDate(value: string | number | Date | null | undefined): Date | null {
   return Number.isNaN(date.getTime()) ? null : date
 }
 
+// --- Календарные даты («2026-08-16», без времени) ---
+
+/**
+ * Локальная дата в виде «2026-08-16». Именно локальная: `toISOString()` отдал бы
+ * UTC, и вес, записанный в Москве до трёх часов ночи, лёг бы во вчерашний день.
+ */
+export function toDateKey(value: string | number | Date = Date.now()): string {
+  const date = toDate(value)
+  if (!date) return ''
+  const mm = String(date.getMonth() + 1).padStart(2, '0')
+  const dd = String(date.getDate()).padStart(2, '0')
+  return `${date.getFullYear()}-${mm}-${dd}`
+}
+
+/**
+ * «2026-08-16» -> Date локальной полуночи. `new Date(строка)` разобрал бы её
+ * как UTC, и к западу от Гринвича дата съезжала бы на день назад.
+ */
+export function parseDateKey(key: string | null | undefined): Date | null {
+  if (!key) return null
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(key.trim())
+  if (!match) return null
+  const [, y, m, d] = match
+  const date = new Date(Number(y), Number(m) - 1, Number(d))
+  return Number.isNaN(date.getTime()) ? null : date
+}
+
 /** «15 августа», с годом если год не текущий. */
 export function formatDate(
   value: string | number | Date | null | undefined,

@@ -25,6 +25,8 @@ export const qk = {
   all: () => [ROOT] as const,
 
   profile: (id: string) => [ROOT, 'profile', id] as const,
+  /** Журнал веса тела целиком: точек мало, страничить нечего. */
+  bodyweight: (id: string) => [ROOT, 'bodyweight', id] as const,
 
   exercises: (filters?: ExerciseFilters) =>
     filters ? ([ROOT, 'exercises', filters] as const) : ([ROOT, 'exercises'] as const),

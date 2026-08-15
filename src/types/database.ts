@@ -63,6 +63,42 @@ export type Database = {
           },
         ]
       }
+      bodyweight_entries: {
+        Row: {
+          id: string
+          profile_id: string
+          /** Локальная дата пользователя в формате YYYY-MM-DD, без времени. */
+          measured_on: string
+          weight_kg: number
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          profile_id: string
+          measured_on: string
+          weight_kg: number
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          profile_id?: string
+          measured_on?: string
+          weight_kg?: number
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'bodyweight_entries_profile_id_fkey'
+            columns: ['profile_id']
+            isOneToOne: false
+            referencedRelation: 'profiles'
+            referencedColumns: ['id']
+          },
+        ]
+      }
       circles: {
         Row: {
           id: string

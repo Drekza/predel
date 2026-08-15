@@ -58,6 +58,7 @@ main.tsx
 | `/session/:sessionId/summary` | `SessionSummaryPage` | внутри `AppShell` |
 | `/history` | `HistoryPage` | внутри `AppShell` |
 | `/profile` | `ProfilePage` | внутри `AppShell` |
+| `/weight` | `BodyweightPage` | внутри `AppShell` |
 | `*` | `NotFound` | вне оболочки |
 
 Детали, о которых стоит знать:
@@ -115,12 +116,13 @@ src/
     domain.ts                  прикладные типы (Exercise, Program, Session, ...)
   features/
     auth/       AuthProvider, RequireAuth, Login/Onboarding/Profile, api
+    bodyweight/ BodyweightPage, WeightChart, series (геометрия графика), api
     exercises/  ExercisePicker, ExerciseCard, CustomExerciseForm, фильтры
     programs/   ProgramsPage, ProgramEditorPage, ProgramDayEditor, reorder
     session/    HomePage, SessionPage, SessionSummaryPage, HistoryPage,
                 ExerciseBlock, SetRow, SetInputBar, RestTimer, prefill
 supabase/
-  migrations/   9 файлов, применяются по возрастанию имени
+  migrations/   10 файлов, применяются по возрастанию имени
   seed/         0001 карта мышц + game_config, 0002 упражнения (генерируется)
 scripts/
   build-exercise-seed.mjs      сборка сида из free-exercise-db + переводы

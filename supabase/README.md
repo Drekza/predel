@@ -18,6 +18,7 @@ supabase/
     20260815120600_game_config.sql                game_config
     20260815120700_rls_policies.sql               все RLS-политики
     20260815120800_session_functions.sql          start_session() / finish_session()
+    20260816120000_bodyweight_entries.sql         журнал веса тела + своя RLS-политика
   seed.sql                          точка входа сидов (мета-команды psql)
   seed/
     0001_muscle_stat_map.sql        17 строк карты мышц + константы game_config
@@ -27,7 +28,8 @@ supabase/
 Миграции применяются строго по возрастанию имени файла. Порядок не переставлять:
 `profiles` обязан существовать раньше `exercises` (FK `owner_id`), `programs` — раньше
 `sessions`, а политики (`..._rls_policies.sql`) — последними, они ссылаются на все таблицы
-и на security definer функции из миграции кругов.
+и на security definer функции из миграции кругов. Таблицы, добавленные после этого файла,
+несут свою политику в собственной миграции: применённую менять задним числом нельзя.
 
 ## Вариант 1: через CLI (рекомендуемый)
 

@@ -23,6 +23,9 @@ const SessionSummaryPage = lazy(() =>
 const HistoryPage = lazy(() =>
   import('@/features/session').then((m) => ({ default: m.HistoryPage })),
 )
+const BodyweightPage = lazy(() =>
+  import('@/features/bodyweight').then((m) => ({ default: m.BodyweightPage })),
+)
 const ProgramsPage = lazy(() =>
   import('@/features/programs').then((m) => ({ default: m.ProgramsPage })),
 )
@@ -129,6 +132,7 @@ export const router = createBrowserRouter(
             },
             { path: 'history', element: <HistoryPage />, handle: { title: 'История' } },
             { path: 'profile', element: <ProfilePage />, handle: { title: 'Профиль' } },
+            { path: 'weight', element: <BodyweightPage />, handle: { title: 'Вес тела' } },
           ],
         },
 

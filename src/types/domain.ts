@@ -71,6 +71,11 @@ export type Profile = Tables<'profiles'>
 export type ProfileInsert = TablesInsert<'profiles'>
 export type ProfileUpdate = TablesUpdate<'profiles'>
 
+/** Измерение веса тела за конкретный день. */
+export type BodyweightEntry = Tables<'bodyweight_entries'>
+export type BodyweightEntryInsert = TablesInsert<'bodyweight_entries'>
+export type BodyweightEntryUpdate = TablesUpdate<'bodyweight_entries'>
+
 export type Exercise = Tables<'exercises'>
 export type ExerciseInsert = TablesInsert<'exercises'>
 export type ExerciseUpdate = TablesUpdate<'exercises'>

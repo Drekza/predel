@@ -4,6 +4,9 @@ import { Navigate, useNavigate } from 'react-router'
 import { ScanLine } from 'lucide-react'
 
 import { Button, Card, CardBody, Field, Input, NumberStepper, Spinner } from '@/components/ui'
+import { toDateKey } from '@/lib/format'
+// Модуль, а не индекс фичи: индекс тянет за собой экран веса.
+import { useSaveBodyweight } from '@/features/bodyweight/api'
 
 import { useAuth } from './AuthProvider'
 import {
@@ -21,6 +24,7 @@ export function OnboardingPage() {
   const { session, user, profile, loading } = useAuth()
   const navigate = useNavigate()
   const updateProfile = useUpdateProfile(user?.id)
+  const saveBodyweight = useSaveBodyweight(user?.id)
 
   const [nickname, setNickname] = useState(() => profile?.nickname ?? '')
   const [bodyweight, setBodyweight] = useState<number | null>(() => profile?.bodyweight_kg ?? null)
@@ -50,6 +54,12 @@ export function OnboardingPage() {
       { nickname, bodyweightKg: bodyweight, completeOnboarding: true },
       {
         onSuccess: () => {
+          // Первое измерение — первая точка графика. Онбординг оно не держит:
+          // не записалось так не записалось, вес есть в профиле и уйдёт
+          // в журнал при следующем сохранении.
+          if (bodyweight !== null) {
+            saveBodyweight.mutate({ measuredOn: toDateKey(), weightKg: bodyweight })
+          }
           void navigate('/', { replace: true })
         },
         onError: (error) => setFormError(profileErrorMessage(error)),

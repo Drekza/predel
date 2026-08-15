@@ -9,6 +9,7 @@
 | Модуль | Что даёт |
 |---|---|
 | `src/types/database.ts` | Ручной `Database` в формате supabase-js v2 + `Tables<'sets'>`, `TablesInsert<...>`, `Enums<...>`, `Constants` |
+| `src/features/bodyweight/*` | Журнал веса тела: хуки, геометрия графика, экран |
 | `src/types/domain.ts` | Прикладные типы (`Exercise`, `ProgramItem`, `WorkoutSet`, `SessionExerciseView`, черновики подходов) и type guard'ы `isCardioSet` / `isStrengthSet` |
 | `src/lib/env.ts` | `env.supabaseUrl`, `env.supabaseAnonKey`, `env.isConfigured`, `env.missing` |
 | `src/lib/supabase.ts` | Единственный клиент `supabase` |
@@ -30,6 +31,7 @@
 
 ```ts
 qk.profile(id)          // ['gymrpg','profile',id]
+qk.bodyweight(id)       // ['gymrpg','bodyweight',id] — журнал веса целиком
 qk.exercises(filters?)  // ['gymrpg','exercises'] | ['gymrpg','exercises',filters]
 qk.exercise(id)
 qk.programs() / qk.program(id)
@@ -70,6 +72,8 @@ parseDurationInput('10:30') // 630   (мм:сс)
 parseDurationInput('630')   // 630   (целое = секунды)
 parseDurationInput('10.5')  // 630   (дробное = минуты)
 parseNumberRu('82,5')       // 82.5
+toDateKey()                 // «2026-08-16» — ЛОКАЛЬНАЯ дата, не UTC
+parseDateKey('2026-08-16')  // Date локальной полуночи
 ```
 
 Пустое значение везде даёт «—» (`EM_DASH`), а не «NaN» и не пустую строку.
@@ -131,6 +135,21 @@ const op = enqueue({ kind: 'log_set', id: clientId, payload })  // сразу п
 
 Тесты: `src/lib/offline/__tests__/queue.test.ts` (FIFO, backoff, идемпотентность на 23505,
 переживание перезагрузки, ошибки прав, retry/discard).
+
+## Вес тела
+
+`bodyweight_entries` — журнал измерений, одно значение на дату. Хуки в
+`src/features/bodyweight/api.ts`: `useBodyweightEntries` (по возрастанию даты, как
+рисует график), `useSaveBodyweight` (upsert по `profile_id, measured_on`),
+`useDeleteBodyweightEntry`. Каждая мутация гасит и `qk.profile(id)`: текущий вес
+профиля переставляет серверный триггер, клиент его не пишет.
+
+`measured_on` формируется через `toDateKey()` — именно локальная дата. Через
+офлайн-очередь вес не идёт: это настройка, а не подход между сетами.
+
+Геометрия графика — чистые функции в `src/features/bodyweight/series.ts`
+(`filterByPeriod`, `summarize`, `weightBounds`, `buildChart`), рисует их
+`WeightChart` рукописным SVG. Библиотеки графиков в проекте нет.
 
 ## Кардио
 

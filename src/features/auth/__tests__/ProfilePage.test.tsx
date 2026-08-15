@@ -117,6 +117,21 @@ describe('ProfilePage', () => {
     expect(upsertSpy.mock.calls[0]?.[0]).not.toHaveProperty('onboarded_at')
   })
 
+  it('изменённый вес уходит и в журнал измерений', async () => {
+    const user = userEvent.setup()
+    renderPage()
+
+    await user.click(screen.getByRole('button', { name: 'Увеличить' }))
+    await user.click(screen.getByRole('button', { name: 'Сохранить' }))
+
+    expect(await screen.findByText('сохранено')).toBeInTheDocument()
+    expect(upsertSpy.mock.calls[0]?.[0]).toMatchObject({ id: 'u-1', bodyweight_kg: 83 })
+
+    const entry = upsertSpy.mock.calls[1]?.[0] as Record<string, unknown>
+    expect(entry).toMatchObject({ profile_id: 'u-1', weight_kg: 83 })
+    expect(entry.measured_on).toMatch(/^\d{4}-\d{2}-\d{2}$/)
+  })
+
   it('считает неотправленные операции очереди', () => {
     queueState.current = {
       pending: 3,

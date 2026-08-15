@@ -1,6 +1,15 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
-import { CheckCheck, CircleAlert, CloudUpload, LogOut, RefreshCw, Trash2 } from 'lucide-react'
+import { useNavigate } from 'react-router'
+import {
+  CheckCheck,
+  CircleAlert,
+  CloudUpload,
+  LineChart,
+  LogOut,
+  RefreshCw,
+  Trash2,
+} from 'lucide-react'
 
 import {
   Button,
@@ -13,8 +22,11 @@ import {
   NumberStepper,
   Skeleton,
 } from '@/components/ui'
-import { pluralRu } from '@/lib/format'
+import { pluralRu, toDateKey } from '@/lib/format'
 import { useOfflineQueue } from '@/lib/offline/queue'
+// Модуль, а не индекс фичи: индекс тянет за собой экран веса, а он лежит
+// в отдельном чанке и в стартовый бандл попадать не должен.
+import { useSaveBodyweight } from '@/features/bodyweight/api'
 
 import { useAuth } from './AuthProvider'
 import {
@@ -33,7 +45,9 @@ const APP_VERSION = '0.1.0'
 
 export function ProfilePage() {
   const { user, profile, signOut, signingOut } = useAuth()
+  const navigate = useNavigate()
   const updateProfile = useUpdateProfile(user?.id)
+  const saveBodyweight = useSaveBodyweight(user?.id)
   const queue = useOfflineQueue()
 
   const [nickname, setNickname] = useState(() => profile?.nickname ?? '')
@@ -73,9 +87,21 @@ export function ProfilePage() {
     setFormError(null)
     if (nickErr || weightErr) return
 
+    const weightChanged = bodyweight !== profile.bodyweight_kg
+
     updateProfile.mutate(
       { nickname, bodyweightKg: bodyweight },
-      { onError: (error) => setFormError(profileErrorMessage(error)) },
+      {
+        onSuccess: () => {
+          // Новый вес попадает и в журнал — сегодняшним днём. Иначе график
+          // не увидел бы изменения, сделанного отсюда.
+          // Обнуление веса журнал не трогает: измерения удаляются на своём экране.
+          if (weightChanged && bodyweight !== null) {
+            saveBodyweight.mutate({ measuredOn: toDateKey(), weightKg: bodyweight })
+          }
+        },
+        onError: (error) => setFormError(profileErrorMessage(error)),
+      },
     )
   }
 
@@ -124,7 +150,7 @@ export function ProfilePage() {
 
             <Field
               label="вес тела"
-              hint="Влияет на упражнения с собственным весом"
+              hint="Влияет на упражнения с собственным весом. Записывается в журнал сегодняшним днём"
               error={weightError ?? undefined}
             >
               <NumberStepper
@@ -164,6 +190,13 @@ export function ProfilePage() {
             ) : null}
           </form>
         </CardBody>
+
+        <CardFooter>
+          <Button variant="outline" fullWidth onClick={() => void navigate('/weight')}>
+            <LineChart size={16} aria-hidden />
+            История веса
+          </Button>
+        </CardFooter>
       </Card>
 
       <Card>

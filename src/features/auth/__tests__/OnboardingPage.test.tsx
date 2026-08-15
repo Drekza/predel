@@ -93,7 +93,7 @@ describe('OnboardingPage', () => {
     expect(upsertSpy).not.toHaveBeenCalled()
   })
 
-  it('сохраняет ник с весом, ставит отметку онбординга и уводит на главную', async () => {
+  it('сохраняет ник с весом, кладёт первое измерение в журнал и уводит на главную', async () => {
     const user = userEvent.setup()
     renderPage()
 
@@ -107,8 +107,13 @@ describe('OnboardingPage', () => {
 
     expect(await screen.findByText('главная')).toBeInTheDocument()
 
-    const row = upsertSpy.mock.calls.at(-1)?.[0] as Record<string, unknown>
+    const row = upsertSpy.mock.calls[0]?.[0] as Record<string, unknown>
     expect(row).toMatchObject({ id: 'u-1', nickname: 'Кузнец', bodyweight_kg: 30 })
     expect(typeof row.onboarded_at).toBe('string')
+
+    // Тот же вес уходит в журнал: с этой точки начинается график.
+    const entry = upsertSpy.mock.calls[1]?.[0] as Record<string, unknown>
+    expect(entry).toMatchObject({ profile_id: 'u-1', weight_kg: 30 })
+    expect(entry.measured_on).toMatch(/^\d{4}-\d{2}-\d{2}$/)
   })
 })
