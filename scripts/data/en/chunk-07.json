@@ -1,0 +1,677 @@
+[
+  {
+    "id": "Push_Up_to_Side_Plank",
+    "name": "Push Up to Side Plank",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Pushups",
+    "name": "Pushups",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Pushups_Close_and_Wide_Hand_Positions",
+    "name": "Pushups (Close and Wide Hand Positions)",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Rack_Delivery",
+    "name": "Rack Delivery",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Rack_Pull_with_Bands",
+    "name": "Rack Pull with Bands",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "lower back"
+    ]
+  },
+  {
+    "id": "Rack_Pulls",
+    "name": "Rack Pulls",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "lower back"
+    ]
+  },
+  {
+    "id": "Reverse_Band_Bench_Press",
+    "name": "Reverse Band Bench Press",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Reverse_Band_Box_Squat",
+    "name": "Reverse Band Box Squat",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Reverse_Band_Deadlift",
+    "name": "Reverse Band Deadlift",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "lower back"
+    ]
+  },
+  {
+    "id": "Reverse_Band_Power_Squat",
+    "name": "Reverse Band Power Squat",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Reverse_Band_Sumo_Deadlift",
+    "name": "Reverse Band Sumo Deadlift",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Reverse_Barbell_Curl",
+    "name": "Reverse Barbell Curl",
+    "equipment": "barbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Reverse_Barbell_Preacher_Curls",
+    "name": "Reverse Barbell Preacher Curls",
+    "equipment": "e-z curl bar",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Reverse_Cable_Curl",
+    "name": "Reverse Cable Curl",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Reverse_Crunch",
+    "name": "Reverse Crunch",
+    "equipment": "body only",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Reverse_Flyes",
+    "name": "Reverse Flyes",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Reverse_Flyes_With_External_Rotation",
+    "name": "Reverse Flyes With External Rotation",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Reverse_Grip_Bent-Over_Rows",
+    "name": "Reverse Grip Bent-Over Rows",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "middle back"
+    ]
+  },
+  {
+    "id": "Reverse_Grip_Triceps_Pushdown",
+    "name": "Reverse Grip Triceps Pushdown",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Reverse_Hyperextension",
+    "name": "Reverse Hyperextension",
+    "equipment": "machine",
+    "mechanic": null,
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Reverse_Machine_Flyes",
+    "name": "Reverse Machine Flyes",
+    "equipment": "machine",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Reverse_Plate_Curls",
+    "name": "Reverse Plate Curls",
+    "equipment": "other",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Reverse_Triceps_Bench_Press",
+    "name": "Reverse Triceps Bench Press",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Rickshaw_Carry",
+    "name": "Rickshaw Carry",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "forearms"
+    ]
+  },
+  {
+    "id": "Rickshaw_Deadlift",
+    "name": "Rickshaw Deadlift",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Ring_Dips",
+    "name": "Ring Dips",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Rocking_Standing_Calf_Raise",
+    "name": "Rocking Standing Calf Raise",
+    "equipment": "barbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "calves"
+    ]
+  },
+  {
+    "id": "Rocky_Pull-Ups_Pulldowns",
+    "name": "Rocky Pull-Ups/Pulldowns",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "lats"
+    ]
+  },
+  {
+    "id": "Romanian_Deadlift",
+    "name": "Romanian Deadlift",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Romanian_Deadlift_from_Deficit",
+    "name": "Romanian Deadlift from Deficit",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Rope_Climb",
+    "name": "Rope Climb",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "lats"
+    ]
+  },
+  {
+    "id": "Rope_Crunch",
+    "name": "Rope Crunch",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Rope_Straight-Arm_Pulldown",
+    "name": "Rope Straight-Arm Pulldown",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "lats"
+    ]
+  },
+  {
+    "id": "Russian_Twist",
+    "name": "Russian Twist",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Sandbag_Load",
+    "name": "Sandbag Load",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Scapular_Pull-Up",
+    "name": "Scapular Pull-Up",
+    "equipment": null,
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "traps"
+    ]
+  },
+  {
+    "id": "Seated_Band_Hamstring_Curl",
+    "name": "Seated Band Hamstring Curl",
+    "equipment": "other",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Seated_Barbell_Military_Press",
+    "name": "Seated Barbell Military Press",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Seated_Barbell_Twist",
+    "name": "Seated Barbell Twist",
+    "equipment": "barbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Seated_Bent-Over_One-Arm_Dumbbell_Triceps_Extension",
+    "name": "Seated Bent-Over One-Arm Dumbbell Triceps Extension",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Seated_Bent-Over_Rear_Delt_Raise",
+    "name": "Seated Bent-Over Rear Delt Raise",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Seated_Bent-Over_Two-Arm_Dumbbell_Triceps_Extension",
+    "name": "Seated Bent-Over Two-Arm Dumbbell Triceps Extension",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Seated_Cable_Rows",
+    "name": "Seated Cable Rows",
+    "equipment": "cable",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "middle back"
+    ]
+  },
+  {
+    "id": "Seated_Cable_Shoulder_Press",
+    "name": "Seated Cable Shoulder Press",
+    "equipment": "cable",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Seated_Calf_Raise",
+    "name": "Seated Calf Raise",
+    "equipment": "machine",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "calves"
+    ]
+  },
+  {
+    "id": "Seated_Close-Grip_Concentration_Barbell_Curl",
+    "name": "Seated Close-Grip Concentration Barbell Curl",
+    "equipment": "barbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Seated_Dumbbell_Curl",
+    "name": "Seated Dumbbell Curl",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Seated_Dumbbell_Inner_Biceps_Curl",
+    "name": "Seated Dumbbell Inner Biceps Curl",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Seated_Dumbbell_Palms-Down_Wrist_Curl",
+    "name": "Seated Dumbbell Palms-Down Wrist Curl",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "forearms"
+    ]
+  },
+  {
+    "id": "Seated_Dumbbell_Palms-Up_Wrist_Curl",
+    "name": "Seated Dumbbell Palms-Up Wrist Curl",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "forearms"
+    ]
+  },
+  {
+    "id": "Seated_Dumbbell_Press",
+    "name": "Seated Dumbbell Press",
+    "equipment": "dumbbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Seated_Flat_Bench_Leg_Pull-In",
+    "name": "Seated Flat Bench Leg Pull-In",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Seated_Good_Mornings",
+    "name": "Seated Good Mornings",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "lower back"
+    ]
+  },
+  {
+    "id": "Seated_Head_Harness_Neck_Resistance",
+    "name": "Seated Head Harness Neck Resistance",
+    "equipment": "other",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "neck"
+    ]
+  },
+  {
+    "id": "Seated_Leg_Curl",
+    "name": "Seated Leg Curl",
+    "equipment": "machine",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Seated_Leg_Tucks",
+    "name": "Seated Leg Tucks",
+    "equipment": "body only",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Seated_One-Arm_Dumbbell_Palms-Down_Wrist_Curl",
+    "name": "Seated One-Arm Dumbbell Palms-Down Wrist Curl",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "forearms"
+    ]
+  },
+  {
+    "id": "Seated_One-Arm_Dumbbell_Palms-Up_Wrist_Curl",
+    "name": "Seated One-Arm Dumbbell Palms-Up Wrist Curl",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "forearms"
+    ]
+  },
+  {
+    "id": "Seated_One-arm_Cable_Pulley_Rows",
+    "name": "Seated One-arm Cable Pulley Rows",
+    "equipment": "cable",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "middle back"
+    ]
+  },
+  {
+    "id": "Seated_Palm-Up_Barbell_Wrist_Curl",
+    "name": "Seated Palm-Up Barbell Wrist Curl",
+    "equipment": "barbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "forearms"
+    ]
+  },
+  {
+    "id": "Seated_Palms-Down_Barbell_Wrist_Curl",
+    "name": "Seated Palms-Down Barbell Wrist Curl",
+    "equipment": "barbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "forearms"
+    ]
+  },
+  {
+    "id": "Seated_Side_Lateral_Raise",
+    "name": "Seated Side Lateral Raise",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Seated_Triceps_Press",
+    "name": "Seated Triceps Press",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Seated_Two-Arm_Palms-Up_Low-Pulley_Wrist_Curl",
+    "name": "Seated Two-Arm Palms-Up Low-Pulley Wrist Curl",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "forearms"
+    ]
+  },
+  {
+    "id": "See-Saw_Press_Alternating_Side_Press",
+    "name": "See-Saw Press (Alternating Side Press)",
+    "equipment": "dumbbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Shotgun_Row",
+    "name": "Shotgun Row",
+    "equipment": "cable",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "lats"
+    ]
+  },
+  {
+    "id": "Shoulder_Press_-_With_Bands",
+    "name": "Shoulder Press - With Bands",
+    "equipment": "bands",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Side_Bridge",
+    "name": "Side Bridge",
+    "equipment": "body only",
+    "mechanic": null,
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Side_Jackknife",
+    "name": "Side Jackknife",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Side_Lateral_Raise",
+    "name": "Side Lateral Raise",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Side_Laterals_to_Front_Raise",
+    "name": "Side Laterals to Front Raise",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Side_To_Side_Chins",
+    "name": "Side To Side Chins",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "lats"
+    ]
+  },
+  {
+    "id": "Single-Arm_Cable_Crossover",
+    "name": "Single-Arm Cable Crossover",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Single-Arm_Linear_Jammer",
+    "name": "Single-Arm Linear Jammer",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Single-Arm_Push-Up",
+    "name": "Single-Arm Push-Up",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  }
+]

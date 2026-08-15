@@ -1,0 +1,63 @@
+[
+  {
+    "id": "Outdoor_Running",
+    "name": "Outdoor Running",
+    "force": null,
+    "level": "beginner",
+    "mechanic": null,
+    "equipment": "body only",
+    "primaryMuscles": [
+      "quadriceps"
+    ],
+    "secondaryMuscles": [
+      "calves",
+      "hamstrings",
+      "glutes"
+    ],
+    "instructions": [
+      "Бег на улице в свободном темпе."
+    ],
+    "category": "cardio",
+    "images": []
+  },
+  {
+    "id": "Outdoor_Walking",
+    "name": "Outdoor Walking",
+    "force": null,
+    "level": "beginner",
+    "mechanic": null,
+    "equipment": "body only",
+    "primaryMuscles": [
+      "quadriceps"
+    ],
+    "secondaryMuscles": [
+      "calves",
+      "glutes"
+    ],
+    "instructions": [
+      "Ходьба на улице в свободном темпе."
+    ],
+    "category": "cardio",
+    "images": []
+  },
+  {
+    "id": "Assault_Bike",
+    "name": "Air Bike",
+    "force": null,
+    "level": "beginner",
+    "mechanic": null,
+    "equipment": "machine",
+    "primaryMuscles": [
+      "quadriceps"
+    ],
+    "secondaryMuscles": [
+      "shoulders",
+      "lats"
+    ],
+    "instructions": [
+      "Работа на воздушном велотренажёре."
+    ],
+    "category": "cardio",
+    "images": []
+  }
+]

@@ -1,0 +1,677 @@
+[
+  {
+    "id": "Crunch_-_Hands_Overhead",
+    "name": "Crunch - Hands Overhead",
+    "equipment": "body only",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Crunch_-_Legs_On_Exercise_Ball",
+    "name": "Crunch - Legs On Exercise Ball",
+    "equipment": "body only",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Crunches",
+    "name": "Crunches",
+    "equipment": "body only",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Cuban_Press",
+    "name": "Cuban Press",
+    "equipment": "dumbbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Dead_Bug",
+    "name": "Dead Bug",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Deadlift_with_Bands",
+    "name": "Deadlift with Bands",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "lower back"
+    ]
+  },
+  {
+    "id": "Deadlift_with_Chains",
+    "name": "Deadlift with Chains",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "lower back"
+    ]
+  },
+  {
+    "id": "Decline_Barbell_Bench_Press",
+    "name": "Decline Barbell Bench Press",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Decline_Close-Grip_Bench_To_Skull_Crusher",
+    "name": "Decline Close-Grip Bench To Skull Crusher",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Decline_Crunch",
+    "name": "Decline Crunch",
+    "equipment": "body only",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Decline_Dumbbell_Bench_Press",
+    "name": "Decline Dumbbell Bench Press",
+    "equipment": "dumbbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Decline_Dumbbell_Flyes",
+    "name": "Decline Dumbbell Flyes",
+    "equipment": "dumbbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Decline_Dumbbell_Triceps_Extension",
+    "name": "Decline Dumbbell Triceps Extension",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Decline_EZ_Bar_Triceps_Extension",
+    "name": "Decline EZ Bar Triceps Extension",
+    "equipment": "barbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Decline_Oblique_Crunch",
+    "name": "Decline Oblique Crunch",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Decline_Push-Up",
+    "name": "Decline Push-Up",
+    "equipment": null,
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Decline_Reverse_Crunch",
+    "name": "Decline Reverse Crunch",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Decline_Smith_Press",
+    "name": "Decline Smith Press",
+    "equipment": "machine",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Deficit_Deadlift",
+    "name": "Deficit Deadlift",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "lower back"
+    ]
+  },
+  {
+    "id": "Dip_Machine",
+    "name": "Dip Machine",
+    "equipment": "machine",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Dips_-_Chest_Version",
+    "name": "Dips - Chest Version",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Dips_-_Triceps_Version",
+    "name": "Dips - Triceps Version",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Donkey_Calf_Raises",
+    "name": "Donkey Calf Raises",
+    "equipment": "other",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "calves"
+    ]
+  },
+  {
+    "id": "Double_Kettlebell_Alternating_Hang_Clean",
+    "name": "Double Kettlebell Alternating Hang Clean",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Double_Kettlebell_Jerk",
+    "name": "Double Kettlebell Jerk",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Double_Kettlebell_Push_Press",
+    "name": "Double Kettlebell Push Press",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Double_Kettlebell_Snatch",
+    "name": "Double Kettlebell Snatch",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Double_Kettlebell_Windmill",
+    "name": "Double Kettlebell Windmill",
+    "equipment": "kettlebells",
+    "mechanic": null,
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Downward_Facing_Balance",
+    "name": "Downward Facing Balance",
+    "equipment": "exercise ball",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "glutes"
+    ]
+  },
+  {
+    "id": "Drag_Curl",
+    "name": "Drag Curl",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Dumbbell_Alternate_Bicep_Curl",
+    "name": "Dumbbell Alternate Bicep Curl",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Dumbbell_Bench_Press",
+    "name": "Dumbbell Bench Press",
+    "equipment": "dumbbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Dumbbell_Bench_Press_with_Neutral_Grip",
+    "name": "Dumbbell Bench Press with Neutral Grip",
+    "equipment": "dumbbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Dumbbell_Bicep_Curl",
+    "name": "Dumbbell Bicep Curl",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Dumbbell_Clean",
+    "name": "Dumbbell Clean",
+    "equipment": "dumbbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Dumbbell_Floor_Press",
+    "name": "Dumbbell Floor Press",
+    "equipment": "dumbbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Dumbbell_Flyes",
+    "name": "Dumbbell Flyes",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Dumbbell_Incline_Row",
+    "name": "Dumbbell Incline Row",
+    "equipment": "dumbbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "middle back"
+    ]
+  },
+  {
+    "id": "Dumbbell_Incline_Shoulder_Raise",
+    "name": "Dumbbell Incline Shoulder Raise",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Dumbbell_Lunges",
+    "name": "Dumbbell Lunges",
+    "equipment": "dumbbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Dumbbell_Lying_One-Arm_Rear_Lateral_Raise",
+    "name": "Dumbbell Lying One-Arm Rear Lateral Raise",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Dumbbell_Lying_Pronation",
+    "name": "Dumbbell Lying Pronation",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "forearms"
+    ]
+  },
+  {
+    "id": "Dumbbell_Lying_Rear_Lateral_Raise",
+    "name": "Dumbbell Lying Rear Lateral Raise",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Dumbbell_Lying_Supination",
+    "name": "Dumbbell Lying Supination",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "forearms"
+    ]
+  },
+  {
+    "id": "Dumbbell_One-Arm_Shoulder_Press",
+    "name": "Dumbbell One-Arm Shoulder Press",
+    "equipment": "dumbbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Dumbbell_One-Arm_Triceps_Extension",
+    "name": "Dumbbell One-Arm Triceps Extension",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Dumbbell_One-Arm_Upright_Row",
+    "name": "Dumbbell One-Arm Upright Row",
+    "equipment": "dumbbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Dumbbell_Prone_Incline_Curl",
+    "name": "Dumbbell Prone Incline Curl",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Dumbbell_Raise",
+    "name": "Dumbbell Raise",
+    "equipment": "dumbbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Dumbbell_Rear_Lunge",
+    "name": "Dumbbell Rear Lunge",
+    "equipment": "dumbbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Dumbbell_Scaption",
+    "name": "Dumbbell Scaption",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Dumbbell_Seated_One-Leg_Calf_Raise",
+    "name": "Dumbbell Seated One-Leg Calf Raise",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "calves"
+    ]
+  },
+  {
+    "id": "Dumbbell_Shoulder_Press",
+    "name": "Dumbbell Shoulder Press",
+    "equipment": "dumbbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Dumbbell_Shrug",
+    "name": "Dumbbell Shrug",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "traps"
+    ]
+  },
+  {
+    "id": "Dumbbell_Side_Bend",
+    "name": "Dumbbell Side Bend",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Dumbbell_Squat",
+    "name": "Dumbbell Squat",
+    "equipment": "dumbbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Dumbbell_Squat_To_A_Bench",
+    "name": "Dumbbell Squat To A Bench",
+    "equipment": "dumbbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Dumbbell_Step_Ups",
+    "name": "Dumbbell Step Ups",
+    "equipment": "dumbbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Dumbbell_Tricep_Extension_-Pronated_Grip",
+    "name": "Dumbbell Tricep Extension -Pronated Grip",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "EZ-Bar_Curl",
+    "name": "EZ-Bar Curl",
+    "equipment": "e-z curl bar",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "EZ-Bar_Skullcrusher",
+    "name": "EZ-Bar Skullcrusher",
+    "equipment": "e-z curl bar",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Elbow_to_Knee",
+    "name": "Elbow to Knee",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Elevated_Back_Lunge",
+    "name": "Elevated Back Lunge",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Elevated_Cable_Rows",
+    "name": "Elevated Cable Rows",
+    "equipment": "cable",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "lats"
+    ]
+  },
+  {
+    "id": "Exercise_Ball_Crunch",
+    "name": "Exercise Ball Crunch",
+    "equipment": "exercise ball",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Exercise_Ball_Pull-In",
+    "name": "Exercise Ball Pull-In",
+    "equipment": "exercise ball",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Extended_Range_One-Arm_Kettlebell_Floor_Press",
+    "name": "Extended Range One-Arm Kettlebell Floor Press",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "External_Rotation",
+    "name": "External Rotation",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "External_Rotation_with_Band",
+    "name": "External Rotation with Band",
+    "equipment": "bands",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "External_Rotation_with_Cable",
+    "name": "External Rotation with Cable",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Face_Pull",
+    "name": "Face Pull",
+    "equipment": "cable",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Farmers_Walk",
+    "name": "Farmer's Walk",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "forearms"
+    ]
+  },
+  {
+    "id": "Finger_Curls",
+    "name": "Finger Curls",
+    "equipment": "barbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "forearms"
+    ]
+  },
+  {
+    "id": "Flat_Bench_Cable_Flyes",
+    "name": "Flat Bench Cable Flyes",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Flat_Bench_Leg_Pull-In",
+    "name": "Flat Bench Leg Pull-In",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  }
+]

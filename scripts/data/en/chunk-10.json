@@ -1,0 +1,155 @@
+[
+  {
+    "id": "Bicycling",
+    "name": "Bicycling",
+    "equipment": "other",
+    "mechanic": null,
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Bicycling_Stationary",
+    "name": "Bicycling, Stationary",
+    "equipment": "machine",
+    "mechanic": null,
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Elliptical_Trainer",
+    "name": "Elliptical Trainer",
+    "equipment": "machine",
+    "mechanic": null,
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Jogging_Treadmill",
+    "name": "Jogging, Treadmill",
+    "equipment": "machine",
+    "mechanic": null,
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Prowler_Sprint",
+    "name": "Prowler Sprint",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Recumbent_Bike",
+    "name": "Recumbent Bike",
+    "equipment": "machine",
+    "mechanic": null,
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Rope_Jumping",
+    "name": "Rope Jumping",
+    "equipment": "other",
+    "mechanic": null,
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Rowing_Stationary",
+    "name": "Rowing, Stationary",
+    "equipment": "machine",
+    "mechanic": null,
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Running_Treadmill",
+    "name": "Running, Treadmill",
+    "equipment": "machine",
+    "mechanic": null,
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Skating",
+    "name": "Skating",
+    "equipment": "other",
+    "mechanic": null,
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Stairmaster",
+    "name": "Stairmaster",
+    "equipment": "machine",
+    "mechanic": null,
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Step_Mill",
+    "name": "Step Mill",
+    "equipment": "machine",
+    "mechanic": null,
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Trail_Running_Walking",
+    "name": "Trail Running/Walking",
+    "equipment": null,
+    "mechanic": null,
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Walking_Treadmill",
+    "name": "Walking, Treadmill",
+    "equipment": "machine",
+    "mechanic": null,
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Outdoor_Running",
+    "name": "Outdoor Running",
+    "equipment": "body only",
+    "mechanic": null,
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Outdoor_Walking",
+    "name": "Outdoor Walking",
+    "equipment": "body only",
+    "mechanic": null,
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Assault_Bike",
+    "name": "Air Bike",
+    "equipment": "machine",
+    "mechanic": null,
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  }
+]

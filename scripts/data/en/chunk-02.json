@@ -1,0 +1,677 @@
+[
+  {
+    "id": "Body-Up",
+    "name": "Body-Up",
+    "equipment": "body only",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Body_Tricep_Press",
+    "name": "Body Tricep Press",
+    "equipment": "body only",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Bodyweight_Flyes",
+    "name": "Bodyweight Flyes",
+    "equipment": "e-z curl bar",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Bodyweight_Mid_Row",
+    "name": "Bodyweight Mid Row",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "middle back"
+    ]
+  },
+  {
+    "id": "Bodyweight_Squat",
+    "name": "Bodyweight Squat",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Bodyweight_Walking_Lunge",
+    "name": "Bodyweight Walking Lunge",
+    "equipment": null,
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Bosu_Ball_Cable_Crunch_With_Side_Bends",
+    "name": "Bosu Ball Cable Crunch With Side Bends",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Bottoms-Up_Clean_From_The_Hang_Position",
+    "name": "Bottoms-Up Clean From The Hang Position",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "forearms"
+    ]
+  },
+  {
+    "id": "Bottoms_Up",
+    "name": "Bottoms Up",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Box_Squat",
+    "name": "Box Squat",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Box_Squat_with_Bands",
+    "name": "Box Squat with Bands",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Box_Squat_with_Chains",
+    "name": "Box Squat with Chains",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Bradford_Rocky_Presses",
+    "name": "Bradford/Rocky Presses",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Butt-Ups",
+    "name": "Butt-Ups",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Butt_Lift_Bridge",
+    "name": "Butt Lift (Bridge)",
+    "equipment": "body only",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "glutes"
+    ]
+  },
+  {
+    "id": "Butterfly",
+    "name": "Butterfly",
+    "equipment": "machine",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Cable_Chest_Press",
+    "name": "Cable Chest Press",
+    "equipment": "cable",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Cable_Crossover",
+    "name": "Cable Crossover",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Cable_Crunch",
+    "name": "Cable Crunch",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Cable_Deadlifts",
+    "name": "Cable Deadlifts",
+    "equipment": "cable",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Cable_Hammer_Curls_-_Rope_Attachment",
+    "name": "Cable Hammer Curls - Rope Attachment",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Cable_Hip_Adduction",
+    "name": "Cable Hip Adduction",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Cable_Incline_Pushdown",
+    "name": "Cable Incline Pushdown",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "lats"
+    ]
+  },
+  {
+    "id": "Cable_Incline_Triceps_Extension",
+    "name": "Cable Incline Triceps Extension",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Cable_Internal_Rotation",
+    "name": "Cable Internal Rotation",
+    "equipment": "cable",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Cable_Iron_Cross",
+    "name": "Cable Iron Cross",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Cable_Judo_Flip",
+    "name": "Cable Judo Flip",
+    "equipment": "cable",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Cable_Lying_Triceps_Extension",
+    "name": "Cable Lying Triceps Extension",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Cable_One_Arm_Tricep_Extension",
+    "name": "Cable One Arm Tricep Extension",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Cable_Preacher_Curl",
+    "name": "Cable Preacher Curl",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Cable_Rear_Delt_Fly",
+    "name": "Cable Rear Delt Fly",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Cable_Reverse_Crunch",
+    "name": "Cable Reverse Crunch",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Cable_Rope_Overhead_Triceps_Extension",
+    "name": "Cable Rope Overhead Triceps Extension",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Cable_Rope_Rear-Delt_Rows",
+    "name": "Cable Rope Rear-Delt Rows",
+    "equipment": "cable",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Cable_Russian_Twists",
+    "name": "Cable Russian Twists",
+    "equipment": "cable",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Cable_Seated_Crunch",
+    "name": "Cable Seated Crunch",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Cable_Seated_Lateral_Raise",
+    "name": "Cable Seated Lateral Raise",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Cable_Shoulder_Press",
+    "name": "Cable Shoulder Press",
+    "equipment": "cable",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Cable_Shrugs",
+    "name": "Cable Shrugs",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "traps"
+    ]
+  },
+  {
+    "id": "Cable_Wrist_Curl",
+    "name": "Cable Wrist Curl",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "forearms"
+    ]
+  },
+  {
+    "id": "Calf-Machine_Shoulder_Shrug",
+    "name": "Calf-Machine Shoulder Shrug",
+    "equipment": "machine",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "traps"
+    ]
+  },
+  {
+    "id": "Calf_Press",
+    "name": "Calf Press",
+    "equipment": "machine",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "calves"
+    ]
+  },
+  {
+    "id": "Calf_Press_On_The_Leg_Press_Machine",
+    "name": "Calf Press On The Leg Press Machine",
+    "equipment": "machine",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "calves"
+    ]
+  },
+  {
+    "id": "Calf_Raise_On_A_Dumbbell",
+    "name": "Calf Raise On A Dumbbell",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "calves"
+    ]
+  },
+  {
+    "id": "Calf_Raises_-_With_Bands",
+    "name": "Calf Raises - With Bands",
+    "equipment": "bands",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "calves"
+    ]
+  },
+  {
+    "id": "Car_Deadlift",
+    "name": "Car Deadlift",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Car_Drivers",
+    "name": "Car Drivers",
+    "equipment": "barbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Chain_Handle_Extension",
+    "name": "Chain Handle Extension",
+    "equipment": "other",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Chain_Press",
+    "name": "Chain Press",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Chair_Squat",
+    "name": "Chair Squat",
+    "equipment": "machine",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Chin-Up",
+    "name": "Chin-Up",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "lats"
+    ]
+  },
+  {
+    "id": "Circus_Bell",
+    "name": "Circus Bell",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Clean",
+    "name": "Clean",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Clean_Deadlift",
+    "name": "Clean Deadlift",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Clean_Pull",
+    "name": "Clean Pull",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Clean_Shrug",
+    "name": "Clean Shrug",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "traps"
+    ]
+  },
+  {
+    "id": "Clean_and_Jerk",
+    "name": "Clean and Jerk",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Clean_and_Press",
+    "name": "Clean and Press",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Clean_from_Blocks",
+    "name": "Clean from Blocks",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Clock_Push-Up",
+    "name": "Clock Push-Up",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Close-Grip_Barbell_Bench_Press",
+    "name": "Close-Grip Barbell Bench Press",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Close-Grip_Dumbbell_Press",
+    "name": "Close-Grip Dumbbell Press",
+    "equipment": "dumbbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Close-Grip_EZ-Bar_Curl_with_Band",
+    "name": "Close-Grip EZ-Bar Curl with Band",
+    "equipment": "e-z curl bar",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Close-Grip_EZ-Bar_Press",
+    "name": "Close-Grip EZ-Bar Press",
+    "equipment": "e-z curl bar",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Close-Grip_EZ_Bar_Curl",
+    "name": "Close-Grip EZ Bar Curl",
+    "equipment": "barbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Close-Grip_Front_Lat_Pulldown",
+    "name": "Close-Grip Front Lat Pulldown",
+    "equipment": "cable",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "lats"
+    ]
+  },
+  {
+    "id": "Close-Grip_Push-Up_off_of_a_Dumbbell",
+    "name": "Close-Grip Push-Up off of a Dumbbell",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Close-Grip_Standing_Barbell_Curl",
+    "name": "Close-Grip Standing Barbell Curl",
+    "equipment": "barbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Cocoons",
+    "name": "Cocoons",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Conans_Wheel",
+    "name": "Conan's Wheel",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Concentration_Curls",
+    "name": "Concentration Curls",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Cross-Body_Crunch",
+    "name": "Cross-Body Crunch",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Cross_Body_Hammer_Curl",
+    "name": "Cross Body Hammer Curl",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Cross_Over_-_With_Bands",
+    "name": "Cross Over - With Bands",
+    "equipment": "bands",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Crucifix",
+    "name": "Crucifix",
+    "equipment": "other",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  }
+]

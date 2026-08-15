@@ -1,0 +1,19 @@
+{
+  "Bicycling": "Велосипед",
+  "Bicycling_Stationary": "Велотренажёр",
+  "Elliptical_Trainer": "Эллиптический тренажёр",
+  "Jogging_Treadmill": "Бег трусцой на дорожке",
+  "Prowler_Sprint": "Спринт с санями",
+  "Recumbent_Bike": "Горизонтальный велотренажёр",
+  "Rope_Jumping": "Прыжки на скакалке",
+  "Rowing_Stationary": "Гребной тренажёр",
+  "Running_Treadmill": "Бег на дорожке",
+  "Skating": "Катание на коньках",
+  "Stairmaster": "Степпер-лестница",
+  "Step_Mill": "Лестничный тренажёр",
+  "Trail_Running_Walking": "Бег по пересечённой местности",
+  "Walking_Treadmill": "Ходьба на дорожке",
+  "Outdoor_Running": "Бег на улице",
+  "Outdoor_Walking": "Ходьба на улице",
+  "Assault_Bike": "Воздушный велотренажёр"
+}

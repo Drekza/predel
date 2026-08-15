@@ -1,0 +1,677 @@
+[
+  {
+    "id": "Keg_Load",
+    "name": "Keg Load",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "lower back"
+    ]
+  },
+  {
+    "id": "Kettlebell_Arnold_Press",
+    "name": "Kettlebell Arnold Press",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Kettlebell_Dead_Clean",
+    "name": "Kettlebell Dead Clean",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Kettlebell_Figure_8",
+    "name": "Kettlebell Figure 8",
+    "equipment": "kettlebells",
+    "mechanic": null,
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Kettlebell_Hang_Clean",
+    "name": "Kettlebell Hang Clean",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Kettlebell_One-Legged_Deadlift",
+    "name": "Kettlebell One-Legged Deadlift",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Kettlebell_Pass_Between_The_Legs",
+    "name": "Kettlebell Pass Between The Legs",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Kettlebell_Pirate_Ships",
+    "name": "Kettlebell Pirate Ships",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Kettlebell_Pistol_Squat",
+    "name": "Kettlebell Pistol Squat",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Kettlebell_Seated_Press",
+    "name": "Kettlebell Seated Press",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Kettlebell_Seesaw_Press",
+    "name": "Kettlebell Seesaw Press",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Kettlebell_Sumo_High_Pull",
+    "name": "Kettlebell Sumo High Pull",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "traps"
+    ]
+  },
+  {
+    "id": "Kettlebell_Thruster",
+    "name": "Kettlebell Thruster",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Kettlebell_Turkish_Get-Up_Lunge_style",
+    "name": "Kettlebell Turkish Get-Up (Lunge style)",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Kettlebell_Turkish_Get-Up_Squat_style",
+    "name": "Kettlebell Turkish Get-Up (Squat style)",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Kettlebell_Windmill",
+    "name": "Kettlebell Windmill",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Kipping_Muscle_Up",
+    "name": "Kipping Muscle Up",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "lats"
+    ]
+  },
+  {
+    "id": "Knee_Hip_Raise_On_Parallel_Bars",
+    "name": "Knee/Hip Raise On Parallel Bars",
+    "equipment": "other",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Kneeling_Cable_Crunch_With_Alternating_Oblique_Twists",
+    "name": "Kneeling Cable Crunch With Alternating Oblique Twists",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Kneeling_Cable_Triceps_Extension",
+    "name": "Kneeling Cable Triceps Extension",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Kneeling_High_Pulley_Row",
+    "name": "Kneeling High Pulley Row",
+    "equipment": "cable",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "lats"
+    ]
+  },
+  {
+    "id": "Kneeling_Jump_Squat",
+    "name": "Kneeling Jump Squat",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "glutes"
+    ]
+  },
+  {
+    "id": "Kneeling_Single-Arm_High_Pulley_Row",
+    "name": "Kneeling Single-Arm High Pulley Row",
+    "equipment": "cable",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "lats"
+    ]
+  },
+  {
+    "id": "Kneeling_Squat",
+    "name": "Kneeling Squat",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "glutes"
+    ]
+  },
+  {
+    "id": "Landmine_180s",
+    "name": "Landmine 180's",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Landmine_Linear_Jammer",
+    "name": "Landmine Linear Jammer",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Lateral_Raise_-_With_Bands",
+    "name": "Lateral Raise - With Bands",
+    "equipment": "bands",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Leg-Over_Floor_Press",
+    "name": "Leg-Over Floor Press",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Leg_Extensions",
+    "name": "Leg Extensions",
+    "equipment": "machine",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Leg_Lift",
+    "name": "Leg Lift",
+    "equipment": "body only",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "glutes"
+    ]
+  },
+  {
+    "id": "Leg_Press",
+    "name": "Leg Press",
+    "equipment": "machine",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Leg_Pull-In",
+    "name": "Leg Pull-In",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Leverage_Chest_Press",
+    "name": "Leverage Chest Press",
+    "equipment": "machine",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Leverage_Deadlift",
+    "name": "Leverage Deadlift",
+    "equipment": "machine",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Leverage_Decline_Chest_Press",
+    "name": "Leverage Decline Chest Press",
+    "equipment": "machine",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Leverage_High_Row",
+    "name": "Leverage High Row",
+    "equipment": "machine",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "middle back"
+    ]
+  },
+  {
+    "id": "Leverage_Incline_Chest_Press",
+    "name": "Leverage Incline Chest Press",
+    "equipment": "machine",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Leverage_Iso_Row",
+    "name": "Leverage Iso Row",
+    "equipment": "machine",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "lats"
+    ]
+  },
+  {
+    "id": "Leverage_Shoulder_Press",
+    "name": "Leverage Shoulder Press",
+    "equipment": "machine",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Leverage_Shrug",
+    "name": "Leverage Shrug",
+    "equipment": "machine",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "traps"
+    ]
+  },
+  {
+    "id": "Log_Lift",
+    "name": "Log Lift",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "London_Bridges",
+    "name": "London Bridges",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "lats"
+    ]
+  },
+  {
+    "id": "Low_Cable_Crossover",
+    "name": "Low Cable Crossover",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Low_Cable_Triceps_Extension",
+    "name": "Low Cable Triceps Extension",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Low_Pulley_Row_To_Neck",
+    "name": "Low Pulley Row To Neck",
+    "equipment": "cable",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Lunge_Pass_Through",
+    "name": "Lunge Pass Through",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Lunge_Sprint",
+    "name": "Lunge Sprint",
+    "equipment": "machine",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Lying_Cable_Curl",
+    "name": "Lying Cable Curl",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Lying_Cambered_Barbell_Row",
+    "name": "Lying Cambered Barbell Row",
+    "equipment": "barbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "middle back"
+    ]
+  },
+  {
+    "id": "Lying_Close-Grip_Bar_Curl_On_High_Pulley",
+    "name": "Lying Close-Grip Bar Curl On High Pulley",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Lying_Close-Grip_Barbell_Triceps_Extension_Behind_The_Head",
+    "name": "Lying Close-Grip Barbell Triceps Extension Behind The Head",
+    "equipment": "barbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Lying_Close-Grip_Barbell_Triceps_Press_To_Chin",
+    "name": "Lying Close-Grip Barbell Triceps Press To Chin",
+    "equipment": "e-z curl bar",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Lying_Dumbbell_Tricep_Extension",
+    "name": "Lying Dumbbell Tricep Extension",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Lying_Face_Down_Plate_Neck_Resistance",
+    "name": "Lying Face Down Plate Neck Resistance",
+    "equipment": "other",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "neck"
+    ]
+  },
+  {
+    "id": "Lying_Face_Up_Plate_Neck_Resistance",
+    "name": "Lying Face Up Plate Neck Resistance",
+    "equipment": "other",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "neck"
+    ]
+  },
+  {
+    "id": "Lying_High_Bench_Barbell_Curl",
+    "name": "Lying High Bench Barbell Curl",
+    "equipment": "barbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Lying_Leg_Curls",
+    "name": "Lying Leg Curls",
+    "equipment": "machine",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Lying_Machine_Squat",
+    "name": "Lying Machine Squat",
+    "equipment": "machine",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Lying_One-Arm_Lateral_Raise",
+    "name": "Lying One-Arm Lateral Raise",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Lying_Rear_Delt_Raise",
+    "name": "Lying Rear Delt Raise",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Lying_Supine_Dumbbell_Curl",
+    "name": "Lying Supine Dumbbell Curl",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Lying_T-Bar_Row",
+    "name": "Lying T-Bar Row",
+    "equipment": "machine",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "middle back"
+    ]
+  },
+  {
+    "id": "Lying_Triceps_Press",
+    "name": "Lying Triceps Press",
+    "equipment": "e-z curl bar",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Machine_Bench_Press",
+    "name": "Machine Bench Press",
+    "equipment": "machine",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Machine_Bicep_Curl",
+    "name": "Machine Bicep Curl",
+    "equipment": "machine",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Machine_Preacher_Curls",
+    "name": "Machine Preacher Curls",
+    "equipment": "machine",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Machine_Shoulder_Military_Press",
+    "name": "Machine Shoulder (Military) Press",
+    "equipment": "machine",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Machine_Triceps_Extension",
+    "name": "Machine Triceps Extension",
+    "equipment": "machine",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Middle_Back_Shrug",
+    "name": "Middle Back Shrug",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "middle back"
+    ]
+  },
+  {
+    "id": "Mixed_Grip_Chin",
+    "name": "Mixed Grip Chin",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "middle back"
+    ]
+  },
+  {
+    "id": "Monster_Walk",
+    "name": "Monster Walk",
+    "equipment": "bands",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abductors"
+    ]
+  },
+  {
+    "id": "Muscle_Snatch",
+    "name": "Muscle Snatch",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Muscle_Up",
+    "name": "Muscle Up",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "lats"
+    ]
+  },
+  {
+    "id": "Narrow_Stance_Hack_Squats",
+    "name": "Narrow Stance Hack Squats",
+    "equipment": "machine",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Narrow_Stance_Leg_Press",
+    "name": "Narrow Stance Leg Press",
+    "equipment": "machine",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  }
+]

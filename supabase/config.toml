@@ -1,0 +1,87 @@
+# Конфиг Supabase CLI для gym-rpg (фаза 1).
+# Значения портов — только для локального стека `supabase start`.
+# На удалённый проект влияют лишь настройки auth, и то после `supabase config push`.
+
+project_id = "predel"
+
+[api]
+enabled = true
+port = 54321
+# Клиент ходит только в public. graphql_public оставлен, чтобы не ломать дашборд.
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54322
+shadow_port = 54320
+major_version = 17
+
+[db.pooler]
+enabled = false
+port = 54329
+pool_mode = "transaction"
+default_pool_size = 20
+max_client_conn = 100
+
+# Порядок сидов повторяет supabase/seed.sql. CLI исполняет файлы сам,
+# мета-команды psql (\ir) не понимает — поэтому пути перечислены явно.
+[db.seed]
+enabled = true
+sql_paths = ["./seed/0001_muscle_stat_map.sql", "./seed/0002_exercises.sql"]
+
+[realtime]
+# Фаза 1 realtime не использует, но локально пусть будет — фаза 6 (кооп-рейды).
+enabled = true
+
+[studio]
+enabled = true
+port = 54323
+api_url = "http://127.0.0.1:54321"
+
+# Локальная почта: письма magic link ловятся здесь, наружу не уходят.
+[inbucket]
+enabled = true
+port = 54324
+
+[storage]
+enabled = false
+
+[auth]
+enabled = true
+site_url = "http://localhost:5173"
+additional_redirect_urls = [
+  "http://localhost:5173",
+  "http://localhost:5173/login",
+  "http://127.0.0.1:5173",
+  "http://localhost:4173"
+]
+jwt_expiry = 3600
+enable_refresh_token_rotation = true
+refresh_token_reuse_interval = 10
+# Регистрация открыта: круг маленький, доступ ограничивается инвайтом в круг,
+# а не закрытием регистрации.
+enable_signup = true
+enable_anonymous_sign_ins = false
+minimum_password_length = 8
+
+[auth.email]
+enable_signup = true
+double_confirm_changes = true
+# Основной сценарий входа — magic link, подтверждение адреса отдельным шагом не нужно.
+enable_confirmations = false
+secure_password_change = false
+max_frequency = "1s"
+otp_length = 6
+otp_expiry = 3600
+
+[auth.sms]
+enable_signup = false
+enable_confirmations = false
+
+[analytics]
+enabled = false
+
+[edge_runtime]
+# Edge Functions появятся в фазах 4–5 (готовность, квесты).
+enabled = false

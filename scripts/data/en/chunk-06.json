@@ -1,0 +1,677 @@
+[
+  {
+    "id": "Narrow_Stance_Squats",
+    "name": "Narrow Stance Squats",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Natural_Glute_Ham_Raise",
+    "name": "Natural Glute Ham Raise",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Neck_Press",
+    "name": "Neck Press",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Oblique_Crunches",
+    "name": "Oblique Crunches",
+    "equipment": "body only",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Oblique_Crunches_-_On_The_Floor",
+    "name": "Oblique Crunches - On The Floor",
+    "equipment": "body only",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Olympic_Squat",
+    "name": "Olympic Squat",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "One-Arm_Dumbbell_Row",
+    "name": "One-Arm Dumbbell Row",
+    "equipment": "dumbbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "middle back"
+    ]
+  },
+  {
+    "id": "One-Arm_Flat_Bench_Dumbbell_Flye",
+    "name": "One-Arm Flat Bench Dumbbell Flye",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "One-Arm_High-Pulley_Cable_Side_Bends",
+    "name": "One-Arm High-Pulley Cable Side Bends",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "One-Arm_Incline_Lateral_Raise",
+    "name": "One-Arm Incline Lateral Raise",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "One-Arm_Kettlebell_Clean",
+    "name": "One-Arm Kettlebell Clean",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "One-Arm_Kettlebell_Clean_and_Jerk",
+    "name": "One-Arm Kettlebell Clean and Jerk",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "One-Arm_Kettlebell_Floor_Press",
+    "name": "One-Arm Kettlebell Floor Press",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "One-Arm_Kettlebell_Jerk",
+    "name": "One-Arm Kettlebell Jerk",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "One-Arm_Kettlebell_Military_Press_To_The_Side",
+    "name": "One-Arm Kettlebell Military Press To The Side",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "One-Arm_Kettlebell_Para_Press",
+    "name": "One-Arm Kettlebell Para Press",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "One-Arm_Kettlebell_Push_Press",
+    "name": "One-Arm Kettlebell Push Press",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "One-Arm_Kettlebell_Row",
+    "name": "One-Arm Kettlebell Row",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "middle back"
+    ]
+  },
+  {
+    "id": "One-Arm_Kettlebell_Snatch",
+    "name": "One-Arm Kettlebell Snatch",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "One-Arm_Kettlebell_Split_Jerk",
+    "name": "One-Arm Kettlebell Split Jerk",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "One-Arm_Kettlebell_Split_Snatch",
+    "name": "One-Arm Kettlebell Split Snatch",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "One-Arm_Kettlebell_Swings",
+    "name": "One-Arm Kettlebell Swings",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "One-Arm_Long_Bar_Row",
+    "name": "One-Arm Long Bar Row",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "middle back"
+    ]
+  },
+  {
+    "id": "One-Arm_Medicine_Ball_Slam",
+    "name": "One-Arm Medicine Ball Slam",
+    "equipment": "medicine ball",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "One-Arm_Open_Palm_Kettlebell_Clean",
+    "name": "One-Arm Open Palm Kettlebell Clean",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "One-Arm_Overhead_Kettlebell_Squats",
+    "name": "One-Arm Overhead Kettlebell Squats",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "One-Arm_Side_Deadlift",
+    "name": "One-Arm Side Deadlift",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "One-Arm_Side_Laterals",
+    "name": "One-Arm Side Laterals",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "One-Legged_Cable_Kickback",
+    "name": "One-Legged Cable Kickback",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "glutes"
+    ]
+  },
+  {
+    "id": "One_Arm_Chin-Up",
+    "name": "One Arm Chin-Up",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "middle back"
+    ]
+  },
+  {
+    "id": "One_Arm_Dumbbell_Bench_Press",
+    "name": "One Arm Dumbbell Bench Press",
+    "equipment": "dumbbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "One_Arm_Dumbbell_Preacher_Curl",
+    "name": "One Arm Dumbbell Preacher Curl",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "One_Arm_Floor_Press",
+    "name": "One Arm Floor Press",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "One_Arm_Lat_Pulldown",
+    "name": "One Arm Lat Pulldown",
+    "equipment": "cable",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "lats"
+    ]
+  },
+  {
+    "id": "One_Arm_Pronated_Dumbbell_Triceps_Extension",
+    "name": "One Arm Pronated Dumbbell Triceps Extension",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "One_Arm_Supinated_Dumbbell_Triceps_Extension",
+    "name": "One Arm Supinated Dumbbell Triceps Extension",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "One_Leg_Barbell_Squat",
+    "name": "One Leg Barbell Squat",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Open_Palm_Kettlebell_Clean",
+    "name": "Open Palm Kettlebell Clean",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Otis-Up",
+    "name": "Otis-Up",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Overhead_Cable_Curl",
+    "name": "Overhead Cable Curl",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Overhead_Squat",
+    "name": "Overhead Squat",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Pallof_Press",
+    "name": "Pallof Press",
+    "equipment": "cable",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Pallof_Press_With_Rotation",
+    "name": "Pallof Press With Rotation",
+    "equipment": "cable",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Palms-Down_Dumbbell_Wrist_Curl_Over_A_Bench",
+    "name": "Palms-Down Dumbbell Wrist Curl Over A Bench",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "forearms"
+    ]
+  },
+  {
+    "id": "Palms-Down_Wrist_Curl_Over_A_Bench",
+    "name": "Palms-Down Wrist Curl Over A Bench",
+    "equipment": "barbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "forearms"
+    ]
+  },
+  {
+    "id": "Palms-Up_Barbell_Wrist_Curl_Over_A_Bench",
+    "name": "Palms-Up Barbell Wrist Curl Over A Bench",
+    "equipment": "barbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "forearms"
+    ]
+  },
+  {
+    "id": "Palms-Up_Dumbbell_Wrist_Curl_Over_A_Bench",
+    "name": "Palms-Up Dumbbell Wrist Curl Over A Bench",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "forearms"
+    ]
+  },
+  {
+    "id": "Parallel_Bar_Dip",
+    "name": "Parallel Bar Dip",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Physioball_Hip_Bridge",
+    "name": "Physioball Hip Bridge",
+    "equipment": "exercise ball",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "glutes"
+    ]
+  },
+  {
+    "id": "Pin_Presses",
+    "name": "Pin Presses",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Plank",
+    "name": "Plank",
+    "equipment": "body only",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Plate_Pinch",
+    "name": "Plate Pinch",
+    "equipment": "other",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "forearms"
+    ]
+  },
+  {
+    "id": "Plate_Twist",
+    "name": "Plate Twist",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Platform_Hamstring_Slides",
+    "name": "Platform Hamstring Slides",
+    "equipment": "other",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Plie_Dumbbell_Squat",
+    "name": "Plie Dumbbell Squat",
+    "equipment": "dumbbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Plyo_Kettlebell_Pushups",
+    "name": "Plyo Kettlebell Pushups",
+    "equipment": "kettlebells",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Power_Clean",
+    "name": "Power Clean",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Power_Clean_from_Blocks",
+    "name": "Power Clean from Blocks",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Power_Jerk",
+    "name": "Power Jerk",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Power_Partials",
+    "name": "Power Partials",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Power_Snatch",
+    "name": "Power Snatch",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Power_Snatch_from_Blocks",
+    "name": "Power Snatch from Blocks",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "quadriceps"
+    ]
+  },
+  {
+    "id": "Power_Stairs",
+    "name": "Power Stairs",
+    "equipment": "other",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Preacher_Curl",
+    "name": "Preacher Curl",
+    "equipment": "barbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Preacher_Hammer_Dumbbell_Curl",
+    "name": "Preacher Hammer Dumbbell Curl",
+    "equipment": "dumbbell",
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "biceps"
+    ]
+  },
+  {
+    "id": "Press_Sit-Up",
+    "name": "Press Sit-Up",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "abdominals"
+    ]
+  },
+  {
+    "id": "Prone_Manual_Hamstring",
+    "name": "Prone Manual Hamstring",
+    "equipment": null,
+    "mechanic": "isolation",
+    "primaryMuscles": [
+      "hamstrings"
+    ]
+  },
+  {
+    "id": "Pull_Through",
+    "name": "Pull Through",
+    "equipment": "cable",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "glutes"
+    ]
+  },
+  {
+    "id": "Pullups",
+    "name": "Pullups",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "lats"
+    ]
+  },
+  {
+    "id": "Push-Up_Wide",
+    "name": "Push-Up Wide",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Push-Ups_-_Close_Triceps_Position",
+    "name": "Push-Ups - Close Triceps Position",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "triceps"
+    ]
+  },
+  {
+    "id": "Push-Ups_With_Feet_Elevated",
+    "name": "Push-Ups With Feet Elevated",
+    "equipment": "body only",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Push-Ups_With_Feet_On_An_Exercise_Ball",
+    "name": "Push-Ups With Feet On An Exercise Ball",
+    "equipment": "exercise ball",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "chest"
+    ]
+  },
+  {
+    "id": "Push_Press",
+    "name": "Push Press",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  },
+  {
+    "id": "Push_Press_-_Behind_the_Neck",
+    "name": "Push Press - Behind the Neck",
+    "equipment": "barbell",
+    "mechanic": "compound",
+    "primaryMuscles": [
+      "shoulders"
+    ]
+  }
+]

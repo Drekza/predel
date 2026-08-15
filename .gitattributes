@@ -1,0 +1,9 @@
+# В репозитории всегда LF, в рабочей копии — как принято в системе.
+* text=auto eol=lf
+
+# Бинарники не трогать
+*.png binary
+*.jpg binary
+*.ico binary
+*.woff binary
+*.woff2 binary
