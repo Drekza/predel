@@ -147,7 +147,12 @@ export function useSignInWithOtp(): UseMutationResult<string, unknown, string> {
       const { error } = await supabase.auth.signInWithOtp({
         email,
         options: {
-          emailRedirectTo: typeof window === 'undefined' ? undefined : window.location.origin,
+          // Не origin, а origin + база: на Pages приложение стоит в подпапке,
+          // и ссылка из письма без неё приводит в корень чужого домена.
+          emailRedirectTo:
+            typeof window === 'undefined'
+              ? undefined
+              : new URL(import.meta.env.BASE_URL, window.location.origin).href,
           shouldCreateUser: true,
         },
       })

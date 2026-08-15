@@ -76,7 +76,12 @@ describe('LoginPage', () => {
     expect(await screen.findByText('ссылка отправлена')).toBeInTheDocument()
     expect(signInWithOtp).toHaveBeenCalledWith({
       email: 'test@example.com',
-      options: { emailRedirectTo: window.location.origin, shouldCreateUser: true },
+      // Ссылка ведёт на базу приложения, а не просто на домен: на Pages оно
+      // стоит в подпапке. В тестах BASE_URL — «/», отсюда хвостовой слэш.
+      options: {
+        emailRedirectTo: `${window.location.origin}${import.meta.env.BASE_URL}`,
+        shouldCreateUser: true,
+      },
     })
     expect(screen.getByText('test@example.com')).toBeInTheDocument()
 
