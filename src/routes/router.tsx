@@ -76,62 +76,67 @@ function AppLayout() {
   )
 }
 
-export const router = createBrowserRouter([
-  {
-    // Маршрут без element рендерит Outlet; он нужен только чтобы повесить
-    // общий errorElement на весь роутер.
-    errorElement: <ErrorBoundary />,
-    children: [
-      // Экраны входа живут вне оболочки: нижняя навигация до входа бессмысленна.
-      { path: '/login', element: <LoginPage /> },
-      { path: '/onboarding', element: <OnboardingPage /> },
+export const router = createBrowserRouter(
+  [
+    {
+      // Маршрут без element рендерит Outlet; он нужен только чтобы повесить
+      // общий errorElement на весь роутер.
+      errorElement: <ErrorBoundary />,
+      children: [
+        // Экраны входа живут вне оболочки: нижняя навигация до входа бессмысленна.
+        { path: '/login', element: <LoginPage /> },
+        { path: '/onboarding', element: <OnboardingPage /> },
 
-      ...(Showroom && DemoSessionGate
-        ? [
-            { path: '/__demo', element: <DemoSessionGate /> },
+        ...(Showroom && DemoSessionGate
+          ? [
+              { path: '/__demo', element: <DemoSessionGate /> },
+              {
+                element: <AppLayout />,
+                children: [
+                  {
+                    path: '__showroom',
+                    element: <Showroom />,
+                    handle: { title: 'Витрина' },
+                  },
+                ],
+              },
+            ]
+          : []),
+
+        {
+          element: (
+            <RequireAuth>
+              <AppLayout />
+            </RequireAuth>
+          ),
+          children: [
+            { index: true, element: <HomePage />, handle: { title: 'Тренировка' } },
+            { path: 'programs', element: <ProgramsPage />, handle: { title: 'Программы' } },
             {
-              element: <AppLayout />,
-              children: [
-                {
-                  path: '__showroom',
-                  element: <Showroom />,
-                  handle: { title: 'Витрина' },
-                },
-              ],
+              path: 'programs/:programId',
+              element: <ProgramEditorPage />,
+              handle: { title: 'Программа' },
             },
-          ]
-        : []),
+            {
+              path: 'session/:sessionId',
+              element: <SessionPage />,
+              handle: { title: 'Тренировка' },
+            },
+            {
+              path: 'session/:sessionId/summary',
+              element: <SessionSummaryPage />,
+              handle: { title: 'Итоги' },
+            },
+            { path: 'history', element: <HistoryPage />, handle: { title: 'История' } },
+            { path: 'profile', element: <ProfilePage />, handle: { title: 'Профиль' } },
+          ],
+        },
 
-      {
-        element: (
-          <RequireAuth>
-            <AppLayout />
-          </RequireAuth>
-        ),
-        children: [
-          { index: true, element: <HomePage />, handle: { title: 'Тренировка' } },
-          { path: 'programs', element: <ProgramsPage />, handle: { title: 'Программы' } },
-          {
-            path: 'programs/:programId',
-            element: <ProgramEditorPage />,
-            handle: { title: 'Программа' },
-          },
-          {
-            path: 'session/:sessionId',
-            element: <SessionPage />,
-            handle: { title: 'Тренировка' },
-          },
-          {
-            path: 'session/:sessionId/summary',
-            element: <SessionSummaryPage />,
-            handle: { title: 'Итоги' },
-          },
-          { path: 'history', element: <HistoryPage />, handle: { title: 'История' } },
-          { path: 'profile', element: <ProfilePage />, handle: { title: 'Профиль' } },
-        ],
-      },
-
-      { path: '*', element: <NotFound /> },
-    ],
-  },
-])
+        { path: '*', element: <NotFound /> },
+      ],
+    },
+  ],
+  // На GitHub Pages сайт живёт в подпапке /predel/. BASE_URL приходит из
+  // vite.config, в dev это «/» — один и тот же код работает в обоих местах.
+  { basename: import.meta.env.BASE_URL },
+)

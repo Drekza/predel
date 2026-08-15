@@ -4,7 +4,15 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
+/**
+ * Сайт живёт на GitHub Pages в подпапке репозитория: drekza.github.io/predel/.
+ * Свой домен появится — сюда придёт «/», и больше ничего менять не придётся:
+ * все пути внутри приложения считаются от этой константы.
+ */
+const BASE = process.env.VITE_BASE_PATH ?? '/predel/'
+
 export default defineConfig({
+  base: BASE,
   plugins: [
     react(),
     tailwindcss(),
@@ -17,21 +25,22 @@ export default defineConfig({
         description: 'Дневник силовых тренировок с игровой прогрессией',
         lang: 'ru',
         dir: 'ltr',
-        start_url: '/',
-        scope: '/',
+        start_url: BASE,
+        scope: BASE,
+        id: BASE,
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#10130d',
         theme_color: '#10130d',
         icons: [
           {
-            src: '/manifest-icon-192.png',
+            src: `${BASE}manifest-icon-192.png`,
             sizes: '192x192',
             type: 'image/png',
             purpose: 'any',
           },
           {
-            src: '/manifest-icon-512.png',
+            src: `${BASE}manifest-icon-512.png`,
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any',
