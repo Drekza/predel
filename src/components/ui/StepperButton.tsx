@@ -18,9 +18,17 @@ function repeatDelay(tick: number): number {
   return 55
 }
 
+/** Дальше этого сдвига палец уже листает страницу, а не жмёт клавишу. */
+const MOVE_CANCEL_PX = 10
+
 /**
  * Внутренний примитив: кнопка −/+ с повтором по удержанию.
  * Не экспортируется из index.ts — им пользуются только степперы.
+ *
+ * Одиночный шаг делает click, а не pointerdown: на телефоне pointerdown
+ * прилетает и тогда, когда палец только начинает листать страницу с этой
+ * клавиши, — и значение менялось само от прокрутки. Click браузер после
+ * прокрутки не шлёт вовсе.
  */
 export function StepperButton({
   onStep,
@@ -38,8 +46,9 @@ export function StepperButton({
 
   const timerRef = useRef<number | null>(null)
   const tickRef = useRef(0)
-  // Тап уже обработан в pointerdown — последующий click гасим.
-  const handledByPointer = useRef(false)
+  const originRef = useRef<{ x: number; y: number } | null>(null)
+  // Удержание уже насчитало шаги — click по отпусканию был бы лишним.
+  const repeated = useRef(false)
 
   const stop = useCallback(() => {
     if (timerRef.current !== null) {
@@ -47,6 +56,7 @@ export function StepperButton({
       timerRef.current = null
     }
     tickRef.current = 0
+    originRef.current = null
   }, [])
 
   useEffect(() => stop, [stop])
@@ -54,6 +64,7 @@ export function StepperButton({
   const startRepeat = useCallback(() => {
     const tick = () => {
       tickRef.current += 1
+      repeated.current = true
       stepRef.current()
       timerRef.current = window.setTimeout(tick, repeatDelay(tickRef.current))
     }
@@ -75,23 +86,28 @@ export function StepperButton({
         size === 'lg' ? 'h-14 w-14' : 'h-11 w-11',
         className,
       )}
-      onPointerDown={() => {
+      onPointerDown={(event) => {
         if (disabled) return
-        handledByPointer.current = true
-        stepRef.current()
+        repeated.current = false
+        originRef.current = { x: event.clientX, y: event.clientY }
         startRepeat()
+      }}
+      onPointerMove={(event) => {
+        const origin = originRef.current
+        if (!origin) return
+        const moved =
+          Math.abs(event.clientX - origin.x) > MOVE_CANCEL_PX ||
+          Math.abs(event.clientY - origin.y) > MOVE_CANCEL_PX
+        if (moved) stop()
       }}
       onPointerUp={stop}
       onPointerLeave={stop}
       onPointerCancel={stop}
       onBlur={stop}
       onContextMenu={(e) => e.preventDefault()}
-      onKeyDown={() => {
-        handledByPointer.current = false
-      }}
       onClick={() => {
-        if (handledByPointer.current) {
-          handledByPointer.current = false
+        if (repeated.current) {
+          repeated.current = false
           return
         }
         if (!disabled) stepRef.current()

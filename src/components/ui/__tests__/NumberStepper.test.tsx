@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { NumberStepper } from '../NumberStepper'
 
@@ -15,6 +15,19 @@ describe('NumberStepper', () => {
     onChange.mockClear()
     await user.click(screen.getByRole('button', { name: 'Уменьшить' }))
     expect(onChange).toHaveBeenCalledExactlyOnceWith(57.5)
+  })
+
+  it('не шагает, когда с клавиши начали листать страницу', () => {
+    const onChange = vi.fn()
+    render(<NumberStepper value={60} onChange={onChange} step={2.5} aria-label="Вес" />)
+
+    // Палец лёг на «+» и повёл страницу: браузер шлёт pointercancel и click не шлёт.
+    const plus = screen.getByRole('button', { name: 'Увеличить' })
+    fireEvent.pointerDown(plus, { clientX: 10, clientY: 10 })
+    fireEvent.pointerMove(plus, { clientX: 12, clientY: 90 })
+    fireEvent.pointerCancel(plus)
+
+    expect(onChange).not.toHaveBeenCalled()
   })
 
   it('не выпускает значение за границы min/max', async () => {

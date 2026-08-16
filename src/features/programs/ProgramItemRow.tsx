@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react'
-import { ChevronDown, ChevronUp, Timer, Trash2 } from 'lucide-react'
+import { useState, type ReactNode } from 'react'
+import { Check, ChevronDown, ChevronUp, Timer, Trash2 } from 'lucide-react'
 
 import { Button, DurationStepper, NumberStepper, RirStepper } from '@/components/ui'
 import { cn } from '@/lib/cn'
@@ -9,9 +9,6 @@ import type { ProgramItemUpdate, ProgramItemWithExercise } from '@/types/domain'
 
 import { MIN_TARGET_DURATION_SEC } from './api'
 import type { Direction } from './reorder'
-
-/** Пауза перед отправкой правки: удержание «+» на степпере не должно родить два десятка запросов. */
-const SAVE_DEBOUNCE_MS = 450
 
 const REPS_MIN = 1
 const REPS_MAX = 100
@@ -59,6 +56,18 @@ function sameDraft(a: Draft, b: Draft): boolean {
     a.durationSec === b.durationSec &&
     a.distanceM === b.distanceM
   )
+}
+
+/** Обратный разбор: то, что ушло на сервер, показываем на строке до его ответа. */
+function fromUpdate(update: ProgramItemUpdate): Draft {
+  return {
+    targetSets: update.target_sets ?? null,
+    repMin: update.rep_min ?? null,
+    repMax: update.rep_max ?? null,
+    targetRir: update.target_rir ?? null,
+    durationSec: update.target_duration_sec ?? null,
+    distanceM: update.target_distance_m ?? null,
+  }
 }
 
 function clamp(value: number, min: number, max: number): number {
@@ -109,56 +118,35 @@ export function ProgramItemRow({
   onPatch,
 }: ProgramItemRowProps) {
   const isCardio = item.exercise.kind === 'cardio'
-  const [draft, setDraft] = useState<Draft>(() => toDraft(item))
   const [confirmingDelete, setConfirmingDelete] = useState(false)
 
-  // Последний показанный черновик, незаписанная правка и таймер отправки.
-  const draftRef = useRef(draft)
-  const dirty = useRef(false)
-  const timer = useRef<number | null>(null)
-  const flush = useRef<(() => void) | null>(null)
+  /**
+   * Правка живёт только здесь и уходит на сервер по кнопке.
+   * Автосохранение с паузой отсюда убрано: отправка и обновление кэша шли
+   * вразнобой, и число на строке успевало подъехать поверх набранного.
+   *
+   * Черновик помнит, от какой серверной строки он отсчитан, и отпадает сам,
+   * как только та изменилась: после ответа мутации — или правки с другого
+   * устройства. Синхронизации через эффект здесь нет и быть не должно.
+   */
+  const [edit, setEdit] = useState<{ base: Draft; draft: Draft } | null>(null)
+  const saved = toDraft(item)
+  const draft = edit && sameDraft(edit.base, saved) ? edit.draft : saved
+  const dirty = !sameDraft(draft, saved)
 
-  // Свежие серверные значения принимаем, только если своих несохранённых правок нет.
-  useEffect(() => {
-    if (dirty.current) return
-    const next = toDraft(item)
-    if (sameDraft(draftRef.current, next)) return
-    draftRef.current = next
-    setDraft(next)
-  }, [item])
+  const patchDraft = (patch: Partial<Draft>) =>
+    setEdit({ base: saved, draft: { ...draft, ...patch } })
 
-  const send = (next: Draft) => {
-    dirty.current = false
-    flush.current = null
-    onPatch(toUpdate(next, item.exercise.kind))
+  const save = () => {
+    const update = toUpdate(draft, item.exercise.kind)
+    // Держим на строке ровно то, что ушло: toUpdate ещё и режет значения по границам.
+    setEdit({ base: saved, draft: fromUpdate(update) })
+    onPatch(update)
   }
-
-  const schedule = (patch: Partial<Draft>) => {
-    const next = { ...draft, ...patch }
-    draftRef.current = next
-    setDraft(next)
-    dirty.current = true
-    flush.current = () => send(next)
-    if (timer.current !== null) window.clearTimeout(timer.current)
-    timer.current = window.setTimeout(() => {
-      timer.current = null
-      send(next)
-    }, SAVE_DEBOUNCE_MS)
-  }
-
-  // Уход со страницы не должен съедать последнюю правку.
-  useEffect(() => {
-    return () => {
-      if (timer.current === null) return
-      window.clearTimeout(timer.current)
-      timer.current = null
-      flush.current?.()
-    }
-  }, [])
 
   const setRepMin = (value: number | null) => {
     const repMax = draft.repMax
-    schedule({
+    patchDraft({
       repMin: value,
       repMax: value !== null && repMax !== null && value > repMax ? value : repMax,
     })
@@ -166,7 +154,7 @@ export function ProgramItemRow({
 
   const setRepMax = (value: number | null) => {
     const repMin = draft.repMin
-    schedule({
+    patchDraft({
       repMax: value,
       repMin: value !== null && repMin !== null && value < repMin ? value : repMin,
     })
@@ -243,7 +231,7 @@ export function ProgramItemRow({
         <Control label="Подходы">
           <NumberStepper
             value={draft.targetSets}
-            onChange={(value) => schedule({ targetSets: value })}
+            onChange={(value) => patchDraft({ targetSets: value })}
             step={1}
             min={SETS_MIN}
             max={SETS_MAX}
@@ -257,7 +245,7 @@ export function ProgramItemRow({
             <Control label="Время">
               <DurationStepper
                 valueSec={draft.durationSec}
-                onChange={(value) => schedule({ durationSec: value })}
+                onChange={(value) => patchDraft({ durationSec: value })}
                 stepSec={30}
                 aria-label="целевое время"
               />
@@ -266,7 +254,7 @@ export function ProgramItemRow({
               <NumberStepper
                 value={draft.distanceM === null ? null : draft.distanceM / 1000}
                 onChange={(value) =>
-                  schedule({ distanceM: value === null ? null : Math.round(value * 1000) })
+                  patchDraft({ distanceM: value === null ? null : Math.round(value * 1000) })
                 }
                 step={0.1}
                 min={0}
@@ -306,7 +294,7 @@ export function ProgramItemRow({
             <Control label="Целевой запас">
               <RirStepper
                 value={draft.targetRir}
-                onChange={(value) => schedule({ targetRir: value })}
+                onChange={(value) => patchDraft({ targetRir: value })}
               />
             </Control>
           </>
@@ -322,6 +310,20 @@ export function ProgramItemRow({
           )}
         </p>
       </div>
+
+      {dirty ? (
+        // Полоса на всю ширину строки: пока она видна, цели в базе прежние.
+        <div className="flex items-center gap-2 border-t border-stamp/60 bg-stamp/10 px-3 py-2.5">
+          <span className="mark flex-1 text-stamp-lit">не сохранено</span>
+          <Button size="sm" onClick={save}>
+            <Check size={15} strokeWidth={2.5} aria-hidden />
+            Сохранить
+          </Button>
+          <Button size="sm" variant="ghost" onClick={() => setEdit(null)}>
+            Отмена
+          </Button>
+        </div>
+      ) : null}
     </li>
   )
 }
